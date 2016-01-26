@@ -5,21 +5,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    tools:context="br.com.dsqz.chatnoir.poc_ft.SplashScreenActivity">
+    tools:context=".activity.SplashScreenActivity">
 
     <ImageView
         android:id="@+id/imgLogo1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:maxWidth="@dimen/splashscreen_logo1_width"
-        android:maxHeight="@dimen/splashscreen_height"
-        android:adjustViewBounds="true"
         android:layout_centerVertical="true"
         android:layout_marginBottom="@dimen/splashscreen_logo1_margin_bottom"
         android:layout_marginLeft="@dimen/splashscreen_logo1_margin_left"
         android:layout_marginRight="@dimen/splashscreen_logo1_margin_right"
         android:layout_marginTop="@dimen/splashscreen_logo1_margin_top"
+        android:adjustViewBounds="true"
+        android:maxHeight="@dimen/splashscreen_height"
+        android:maxWidth="@dimen/splashscreen_logo1_width"
         android:src="@drawable/splash_logo_teste"/>
 
     <ImageView
@@ -28,12 +28,12 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:maxWidth="@dimen/splashscreen_logo2_width"
-        android:maxHeight="@dimen/splashscreen_logo2_height"
         android:layout_marginBottom="@dimen/splashscreen_logo2_margin_bottom"
         android:layout_marginLeft="@dimen/splashscreen_logo2_margin_left"
         android:layout_marginRight="@dimen/splashscreen_logo2_margin_right"
         android:layout_marginTop="@dimen/splashscreen_logo2_margin_top"
+        android:maxHeight="@dimen/splashscreen_logo2_height"
+        android:maxWidth="@dimen/splashscreen_logo2_width"
         android:src="@drawable/splash_logo_fourtime"/>
 
 </RelativeLayout>

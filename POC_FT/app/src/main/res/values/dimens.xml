@@ -1,16 +1,17 @@
 <resources>
     <!-- Default screen margins, per the Android Design guidelines. -->
 
-    <item name="splashscreen_logo1_margin_right" format="float" type="dimen">57.9dp</item>
-    <item name="splashscreen_logo1_margin_left" format="float" type="dimen">58.9dp</item>
-    <item name="splashscreen_logo2_margin_right" format="float" type="dimen">120.2dp</item>
-    <item name="splashscreen_logo2_margin_left" format="float" type="dimen">120.2dp</item>
-    <item name="splashscreen_logo2_margin_top" format="float" type="dimen">552.6dp</item>
-    <item name="splashscreen_logo1_width" type="dimen" format="float">243.2dp</item>
-    <item name="splashscreen_height" type="dimen" format="float">161.1dp</item>
-    <item name="splashscreen_logo2_width" type="dimen" format="float">119.7dp</item>
-    <item name="splashscreen_logo2_height" type="dimen" format="float">41.7dp</item>
+    <dimen name="splashscreen_logo1_margin_right" format="float" type="dimen">57.9dp</dimen>
+    <dimen name="splashscreen_logo1_margin_left" format="float" type="dimen">58.9dp</dimen>
+    <dimen name="splashscreen_logo2_margin_right" format="float" type="dimen">120.2dp</dimen>
+    <dimen name="splashscreen_logo2_margin_left" format="float" type="dimen">120.2dp</dimen>
+    <dimen name="splashscreen_logo2_margin_top" format="float" type="dimen">552.6dp</dimen>
+    <dimen name="splashscreen_logo1_width" format="float" type="dimen">243.2dp</dimen>
+    <dimen name="splashscreen_height" format="float" type="dimen">161.1dp</dimen>
+    <dimen name="splashscreen_logo2_width" format="float" type="dimen">119.7dp</dimen>
+    <dimen name="splashscreen_logo2_height" format="float" type="dimen">41.7dp</dimen>
     <dimen name="splashscreen_logo1_margin_top">240dp</dimen>
     <dimen name="splashscreen_logo1_margin_bottom">239dp</dimen>
     <dimen name="splashscreen_logo2_margin_bottom">51dp</dimen>
+
 </resources>
