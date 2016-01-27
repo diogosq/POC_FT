@@ -14,4 +14,26 @@
     <dimen name="splashscreen_logo1_margin_bottom">239dp</dimen>
     <dimen name="splashscreen_logo2_margin_bottom">51dp</dimen>
 
+    <dimen name="autenticacao_logo1_margin_top" type="dimen" format="float">87.6dp</dimen>
+    <dimen name="autenticacao_logo1_margin_end" type="dimen" format="float">106.8dp</dimen>
+    <dimen name="autenticacao_logo1_margin_start" type="dimen" format="float">105.8dp</dimen>
+    <dimen name="autenticacao_logo1_margin_bottom" type="dimen" format="float">382.7dp</dimen>
+    <dimen name="autenticacao_etittext_width">329dp</dimen>
+    <dimen name="autenticacao_etittext_height">48dp</dimen>
+    <dimen name="autenticacao_edit1_margin_bottom">287dp</dimen>
+    <dimen name="autenticacao_edit1_margin_end">15dp</dimen>
+    <dimen name="autenticacao_edit1_margin_start">15dp</dimen>
+    <dimen name="autenticacao_edit1_margin_top">233dp</dimen>
+    <dimen name="autenticacao_logo1_height" type="dimen" format="float">97.7dp</dimen>
+    <dimen name="autenticacao_logo1_width" type="dimen" format="float">147.5dp</dimen>
+    <dimen name="autenticacao_edit2_margin_end">15dp</dimen>
+    <dimen name="autenticacao_edit2_margin_start">15dp</dimen>
+    <dimen name="autenticacao_edit2_margin_bottom" type="dimen" format="float">230.4dp</dimen>
+    <dimen name="autenticacao_edit2_margin_top" type="dimen" format="float">289.6dp</dimen>
+    <dimen name="autenticacao_button_height">43dp</dimen>
+    <dimen name="autenticacao_button_margin_end">111dp</dimen>
+    <item name="autenticacao_button_width" type="dimen" format="float">138.3dp</item>
+    <item name="autenticacao_button_margin_bottom" type="dimen" format="float">140.5dp</item>
+    <item name="autenticacao_button_margin_start" type="dimen" format="float">110.7dp</item>
+    <item name="autenticacao_button_margin_top" type="dimen" format="float">384.5dp</item>
 </resources>

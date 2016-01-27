@@ -4,6 +4,89 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     tools:context="br.com.dsqz.chatnoir.poc_ft.activity.AutenticacaoActivity">
+
+    <ImageView
+        android:id="@+id/imgLogo1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/autenticacao_logo1_margin_bottom"
+        android:layout_marginEnd="@dimen/autenticacao_logo1_margin_end"
+        android:layout_marginStart="@dimen/autenticacao_logo1_margin_start"
+        android:layout_marginTop="@dimen/autenticacao_logo1_margin_top"
+        android:adjustViewBounds="true"
+        android:maxHeight="@dimen/autenticacao_logo1_height"
+        android:maxWidth="@dimen/autenticacao_logo1_width"
+        android:src="@drawable/splash_logo_teste"/>
+
+
+    <EditText
+        android:id="@+id/editTextUsuario"
+        android:layout_width="@dimen/autenticacao_etittext_width"
+        android:layout_height="@dimen/autenticacao_etittext_height"
+        android:layout_marginBottom="@dimen/autenticacao_edit1_margin_bottom"
+        android:layout_marginEnd="@dimen/autenticacao_edit1_margin_end"
+        android:layout_marginStart="@dimen/autenticacao_edit1_margin_start"
+        android:layout_marginTop="@dimen/autenticacao_edit1_margin_top"
+        android:hint="@string/autenticacao_edit1_hint"
+        android:shadowColor="@color/white"
+        android:textColor="@color/white"
+        android:textColorHighlight="@color/white"
+        android:textColorHint="@color/white"
+        android:textColorLink="@color/white"/>
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="@dimen/autenticacao_etittext_width"
+        android:layout_height="@dimen/autenticacao_etittext_height"
+        android:layout_marginBottom="@dimen/autenticacao_edit2_margin_bottom"
+        android:layout_marginEnd="@dimen/autenticacao_edit2_margin_end"
+        android:layout_marginStart="@dimen/autenticacao_edit2_margin_start"
+        android:layout_marginTop="@dimen/autenticacao_edit2_margin_top"
+        android:hint="@string/autenticacao_edit2_hint"
+        android:password="true"
+        android:shadowColor="@color/white"
+        android:textColor="@color/white"
+        android:textColorHighlight="@color/white"
+        android:textColorHint="@color/white"
+        android:textColorLink="@color/white"/>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="@dimen/autenticacao_button_width"
+        android:layout_height="@dimen/autenticacao_button_height"
+        android:layout_marginBottom="@dimen/autenticacao_button_margin_bottom"
+        android:layout_marginEnd="@dimen/autenticacao_button_margin_end"
+        android:layout_marginStart="@dimen/autenticacao_button_margin_start"
+        android:layout_marginTop="@dimen/autenticacao_button_margin_top"
+        android:background="#1287d6"
+        android:text="@string/autenticacao_button_text"
+        android:textColor="@color/white"/>
+
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="101.6dp"
+        android:layout_marginEnd="115.5dp"
+        android:layout_marginStart="115.5dp"
+        android:layout_marginTop="450.4dp"
+        android:text="@string/autenticacao_quero_me_cadastrar"
+        android:textColor="@color/white"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="63.5dp"
+        android:layout_marginEnd="69.5dp"
+        android:layout_marginStart="69.5dp"
+        android:layout_marginTop="488.5dp"
+        android:text="@string/autenticacao_esqueceu_sua_senha"
+        android:textColor="@color/white"/>
 
 </RelativeLayout>

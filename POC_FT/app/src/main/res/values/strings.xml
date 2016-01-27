@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">POC_FT</string>
+    <string name="autenticacao_quero_me_cadastrar"><u>Quero me cadastrar</u></string>
+    <string name="autenticacao_esqueceu_sua_senha"><u>Esqueceu sua senha? Clique aqui</u></string>
+    <string name="autenticacao_edit1_hint">Usuário</string>
+    <string name="autenticacao_edit2_hint">Senha</string>
+    <string name="autenticacao_button_text">Entrar</string>
 </resources>
