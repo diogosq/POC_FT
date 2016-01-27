@@ -1,12 +1,14 @@
 package br.com.dsqz.chatnoir.poc_ft.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -24,6 +26,7 @@ import java.util.Map;
 
 import br.com.dsqz.chatnoir.poc_ft.R;
 import br.com.dsqz.chatnoir.poc_ft.dto.Autenticacao;
+import br.com.dsqz.chatnoir.poc_ft.dto.Usuario;
 import br.com.dsqz.chatnoir.poc_ft.lib.AppController;
 
 public class AutenticacaoActivity extends Activity{
@@ -33,10 +36,11 @@ public class AutenticacaoActivity extends Activity{
     private final Gson   gson         = new Gson();
 
     private Button   mButtonEntrar;
-    private EditText mUsuario;
-    private EditText mSenha;
+    private EditText mEditTextUsuario;
+    private EditText mEditTextSenha;
     private TextView mCadastro;
     private TextView mEsqueci;
+    private Usuario  mUsuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -44,12 +48,34 @@ public class AutenticacaoActivity extends Activity{
         setContentView(R.layout.activity_autenticacao);
 
         mButtonEntrar = (Button) findViewById(R.id.buttonEntrar);
-        mUsuario = (EditText) findViewById(R.id.autenticacao_editTextUsuario);
-        mSenha = (EditText) findViewById(R.id.autenticacao_editTextSenha);
+        mEditTextUsuario = (EditText) findViewById(R.id.autenticacao_editTextUsuario);
+        mEditTextSenha = (EditText) findViewById(R.id.autenticacao_editTextSenha);
         mCadastro = (TextView) findViewById(R.id.autenticacao_textViewCadastrar);
         mEsqueci = (TextView) findViewById(R.id.autenticacao_textViewEsqueci);
 
+        cadastroOnclickListener();
+        esqueciSenhaOnClickListener();
         entrarClickListener();
+    }
+
+    private void cadastroOnclickListener(){
+        mCadastro.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent i = new Intent(AutenticacaoActivity.this, CadastroActivity.class);
+                startActivity(i);
+            }
+        });
+    }
+
+    private void esqueciSenhaOnClickListener(){
+        mEsqueci.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent i = new Intent(AutenticacaoActivity.this, EsqueciMinhaSenhaActivity.class);
+                startActivity(i);
+            }
+        });
     }
 
     private void entrarClickListener(){
@@ -58,8 +84,8 @@ public class AutenticacaoActivity extends Activity{
             public void onClick(View v){
 
                 Autenticacao autenticacao = new Autenticacao();
-                autenticacao.email = "teste@fourtime.com";
-                autenticacao.senha = "senha";
+                autenticacao.email = mEditTextUsuario.getText().toString().trim();
+                autenticacao.senha = mEditTextSenha.getText().toString();
 
                 JSONObject jsonBody = null;
                 try{
@@ -76,6 +102,15 @@ public class AutenticacaoActivity extends Activity{
                             @Override
                             public void onResponse(JSONObject response){
                                 Log.d(TAG, response.toString());
+                                try{
+                                    if(response.getBoolean("sucesso")){
+                                        mUsuario = new Gson().fromJson(response.getJSONObject("dados").toString(), Usuario.class);
+                                    }else{
+                                        Toast.makeText(getApplicationContext(), response.getString("mensagem"), Toast.LENGTH_SHORT).show();
+                                    }
+                                }catch(JSONException e){
+                                    Log.e(TAG, e.getMessage(), e);
+                                }
                             }
                         }, new Response.ErrorListener(){
 
