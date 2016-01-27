@@ -5,4 +5,11 @@
     <string name="autenticacao_edit1_hint">Usuário</string>
     <string name="autenticacao_edit2_hint">Senha</string>
     <string name="autenticacao_button_text">Entrar</string>
+    <string name="urlEntrar">http://api.lojas.club/api/cliente/autenticar</string>
+    <string name="CHARSET_NAME">UTF-8</string>
+    <string name="parsing_error">Parsing error</string>
+    <string name="server_error">Server error</string>
+    <string name="network_error">Check your connection</string>
+    <string name="no_connection_error">No Connection</string>
+    <string name="timeout_error">Timeout error</string>
 </resources>

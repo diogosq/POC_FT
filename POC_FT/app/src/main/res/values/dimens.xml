@@ -32,8 +32,8 @@
     <dimen name="autenticacao_edit2_margin_top" type="dimen" format="float">289.6dp</dimen>
     <dimen name="autenticacao_button_height">43dp</dimen>
     <dimen name="autenticacao_button_margin_end">111dp</dimen>
-    <item name="autenticacao_button_width" type="dimen" format="float">138.3dp</item>
-    <item name="autenticacao_button_margin_bottom" type="dimen" format="float">140.5dp</item>
-    <item name="autenticacao_button_margin_start" type="dimen" format="float">110.7dp</item>
-    <item name="autenticacao_button_margin_top" type="dimen" format="float">384.5dp</item>
+    <dimen name="autenticacao_button_width" type="dimen" format="float">138.3dp</dimen>
+    <dimen name="autenticacao_button_margin_bottom" type="dimen" format="float">140.5dp</dimen>
+    <dimen name="autenticacao_button_margin_start" type="dimen" format="float">110.7dp</dimen>
+    <dimen name="autenticacao_button_margin_top" type="dimen" format="float">384.5dp</dimen>
 </resources>
