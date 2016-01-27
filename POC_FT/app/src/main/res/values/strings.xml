@@ -7,9 +7,9 @@
     <string name="autenticacao_button_text">Entrar</string>
     <string name="urlEntrar">http://api.lojas.club/api/cliente/autenticar</string>
     <string name="CHARSET_NAME">UTF-8</string>
-    <string name="parsing_error">Parsing error</string>
-    <string name="server_error">Server error</string>
-    <string name="network_error">Check your connection</string>
-    <string name="no_connection_error">No Connection</string>
-    <string name="timeout_error">Timeout error</string>
+    <string name="autenticacao_url">http://api.lojas.club/api/cliente/autenticar</string>
+    <string name="token">7PJGH8DUBUD2Q1A69FOLDN</string>
+    <string name="tokenkey">token</string>
+    <string name="Acceptkey">Accept</string>
+    <string name="Accept">application/json</string>
 </resources>

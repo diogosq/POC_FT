@@ -24,7 +24,7 @@
 
 
     <EditText
-        android:id="@+id/editTextUsuario"
+        android:id="@+id/autenticacao_editTextUsuario"
         android:layout_width="@dimen/autenticacao_etittext_width"
         android:layout_height="@dimen/autenticacao_etittext_height"
         android:layout_marginBottom="@dimen/autenticacao_edit1_margin_bottom"
@@ -39,7 +39,7 @@
         android:textColorLink="@color/white"/>
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/autenticacao_editTextSenha"
         android:layout_width="@dimen/autenticacao_etittext_width"
         android:layout_height="@dimen/autenticacao_etittext_height"
         android:layout_marginBottom="@dimen/autenticacao_edit2_margin_bottom"
@@ -68,7 +68,7 @@
 
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/autenticacao_textViewCadastrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="101.6dp"
@@ -79,7 +79,7 @@
         android:textColor="@color/white"/>
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/autenticacao_textViewEsqueci"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="63.5dp"
