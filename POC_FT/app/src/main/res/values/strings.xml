@@ -1,4 +1,7 @@
 <resources>
+    <string name="autenticacao_url">http://api.lojas.club/api/cliente/autenticar</string>
+    <string name="esqueci_senha_url">http://api.lojas.club/api/cliente/esqueci/</string>
+    <!-- -->
     <string name="app_name">POC_FT</string>
     <string name="autenticacao_quero_me_cadastrar"><u>Quero me cadastrar</u></string>
     <string name="autenticacao_esqueceu_sua_senha"><u>Esqueceu sua senha? Clique aqui</u></string>
@@ -7,11 +10,11 @@
     <string name="autenticacao_button_text">Entrar</string>
     <string name="urlEntrar">http://api.lojas.club/api/cliente/autenticar</string>
     <string name="CHARSET_NAME">UTF-8</string>
-    <string name="autenticacao_url">http://api.lojas.club/api/cliente/autenticar</string>
     <string name="token">7PJGH8DUBUD2Q1A69FOLDN</string>
     <string name="tokenkey">token</string>
     <string name="Acceptkey">Accept</string>
     <string name="Accept">application/json</string>
+    <!-- -->
     <string name="esqueciSenha_edit1_hint">Digite seu e-mail cadastrado</string>
     <string name="esqueciSenha_button_text">Enviar</string>
 </resources>

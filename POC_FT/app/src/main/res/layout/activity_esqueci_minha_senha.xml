@@ -24,7 +24,7 @@
 
 
     <EditText
-        android:id="@+id/esqueciSenha_editTextUsuario"
+        android:id="@+id/esqueciSenha_editTextEmail"
         android:layout_width="@dimen/esqueciSenha_etittext_width"
         android:layout_height="@dimen/esqueciSenha_etittext_height"
         android:layout_marginBottom="@dimen/esqueciSenha_edit1_margin_bottom"
@@ -36,17 +36,19 @@
         android:textColor="@color/white"
         android:textColorHighlight="@color/white"
         android:textColorHint="@color/white"
-        android:textColorLink="@color/white"/>
+        android:textColorLink="@color/white"
+        android:maxLength="22"
+        android:singleLine="true"/>
 
     <Button
-        android:id="@+id/buttonEntrar"
+        android:id="@+id/esqueciSenha_buttonEnviar"
         android:layout_width="@dimen/default_button_width"
         android:layout_height="@dimen/default_button_height"
         android:layout_marginBottom="@dimen/esqueciSenha_button_margin_bottom"
         android:layout_marginEnd="@dimen/esqueciSenha_button_margin_end"
         android:layout_marginStart="@dimen/esqueciSenha_button_margin_start"
         android:layout_marginTop="@dimen/esqueciSenha_button_margin_top"
-        android:background="#1287d6"
+        android:background="@color/blue"
         android:text="@string/esqueciSenha_button_text"
         android:textColor="@color/white"/>
 

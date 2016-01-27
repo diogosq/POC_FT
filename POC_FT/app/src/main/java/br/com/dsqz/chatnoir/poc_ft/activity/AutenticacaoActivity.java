@@ -128,8 +128,6 @@ public class AutenticacaoActivity extends Activity{
                             }
                             @Override
                             public Priority getPriority() {
-                                // If you didn't use the setPriority method,
-                                // the priority is automatically set to NORMAL
                                 return Priority.IMMEDIATE;
                             }
                         };
