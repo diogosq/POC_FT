@@ -12,4 +12,6 @@
     <string name="tokenkey">token</string>
     <string name="Acceptkey">Accept</string>
     <string name="Accept">application/json</string>
+    <string name="esqueciSenha_edit1_hint">Digite seu e-mail cadastrado</string>
+    <string name="esqueciSenha_button_text">Enviar</string>
 </resources>

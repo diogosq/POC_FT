@@ -1,5 +1,6 @@
 <resources>
-    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="default_button_height">43dp</dimen>
+    <dimen name="default_button_width" format="float" type="dimen">138.3dp</dimen>
 
     <dimen name="splashscreen_logo1_margin_right" format="float" type="dimen">57.9dp</dimen>
     <dimen name="splashscreen_logo1_margin_left" format="float" type="dimen">58.9dp</dimen>
@@ -30,13 +31,25 @@
     <dimen name="autenticacao_edit2_margin_start">15dp</dimen>
     <dimen name="autenticacao_edit2_margin_bottom" format="float" type="dimen">230.4dp</dimen>
     <dimen name="autenticacao_edit2_margin_top" format="float" type="dimen">289.6dp</dimen>
-    <dimen name="autenticacao_button_height">43dp</dimen>
     <dimen name="autenticacao_button_margin_end">111dp</dimen>
-    <dimen name="autenticacao_button_width" format="float" type="dimen">138.3dp</dimen>
     <dimen name="autenticacao_button_margin_bottom" format="float" type="dimen">140.5dp</dimen>
     <dimen name="autenticacao_button_margin_start" format="float" type="dimen">110.7dp</dimen>
     <dimen name="autenticacao_button_margin_top" format="float" type="dimen">384.5dp</dimen>
-    <!-- Default screen margins, per the Android Design guidelines. -->
-    <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="esqueciSenha_logo1_margin_bottom" type="dimen" format="float">293.4dp</dimen>
+    <dimen name="esqueciSenha_logo1_margin_end" type="dimen" format="float">106.2dp</dimen>
+    <dimen name="esqueciSenha_logo1_margin_start" type="dimen" format="float">105.8dp</dimen>
+    <dimen name="esqueciSenha_logo1_margin_top" type="dimen" format="float">176.6dp</dimen>
+    <dimen name="esqueciSenha_logo1_height" type="dimen" format="float">98dp</dimen>
+    <dimen name="esqueciSenha_logo1_width" type="dimen" format="float">148dp</dimen>
+    <dimen name="esqueciSenha_etittext_width">329dp</dimen>
+    <dimen name="esqueciSenha_etittext_height">48dp</dimen>
+    <dimen name="esqueciSenha_edit1_margin_end">15dp</dimen>
+    <dimen name="esqueciSenha_edit1_margin_start">15dp</dimen>
+    <dimen name="esqueciSenha_edit1_margin_top">308dp</dimen>
+    <dimen name="esqueciSenha_button_margin_end">111dp</dimen>
+    <dimen name="esqueciSenha_edit1_margin_bottom" type="dimen" format="float">219.5dp</dimen>
+    <dimen name="esqueciSenha_button_margin_bottom" type="dimen" format="float">153.7dp</dimen>
+    <dimen name="esqueciSenha_button_margin_start" type="dimen" format="float">110.7dp</dimen>
+    <dimen name="esqueciSenha_button_margin_top" type="dimen" format="float">371.3dp</dimen>
 </resources>

@@ -4,10 +4,50 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@color/colorPrimary"
     tools:context="br.com.dsqz.chatnoir.poc_ft.activity.EsqueciMinhaSenhaActivity">
+
+    <ImageView
+        android:id="@+id/imgLogo1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/esqueciSenha_logo1_margin_bottom"
+        android:layout_marginEnd="@dimen/esqueciSenha_logo1_margin_end"
+        android:layout_marginStart="@dimen/esqueciSenha_logo1_margin_start"
+        android:layout_marginTop="@dimen/esqueciSenha_logo1_margin_top"
+        android:adjustViewBounds="true"
+        android:maxHeight="@dimen/esqueciSenha_logo1_height"
+        android:maxWidth="@dimen/esqueciSenha_logo1_width"
+        android:src="@drawable/splash_logo_teste"/>
+
+
+    <EditText
+        android:id="@+id/esqueciSenha_editTextUsuario"
+        android:layout_width="@dimen/esqueciSenha_etittext_width"
+        android:layout_height="@dimen/esqueciSenha_etittext_height"
+        android:layout_marginBottom="@dimen/esqueciSenha_edit1_margin_bottom"
+        android:layout_marginEnd="@dimen/esqueciSenha_edit1_margin_end"
+        android:layout_marginStart="@dimen/esqueciSenha_edit1_margin_start"
+        android:layout_marginTop="@dimen/esqueciSenha_edit1_margin_top"
+        android:hint="@string/esqueciSenha_edit1_hint"
+        android:shadowColor="@color/white"
+        android:textColor="@color/white"
+        android:textColorHighlight="@color/white"
+        android:textColorHint="@color/white"
+        android:textColorLink="@color/white"/>
+
+    <Button
+        android:id="@+id/buttonEntrar"
+        android:layout_width="@dimen/default_button_width"
+        android:layout_height="@dimen/default_button_height"
+        android:layout_marginBottom="@dimen/esqueciSenha_button_margin_bottom"
+        android:layout_marginEnd="@dimen/esqueciSenha_button_margin_end"
+        android:layout_marginStart="@dimen/esqueciSenha_button_margin_start"
+        android:layout_marginTop="@dimen/esqueciSenha_button_margin_top"
+        android:background="#1287d6"
+        android:text="@string/esqueciSenha_button_text"
+        android:textColor="@color/white"/>
 
 </RelativeLayout>

@@ -126,6 +126,12 @@ public class AutenticacaoActivity extends Activity{
                                 headers.put(getString(R.string.Acceptkey), getString(R.string.Accept));
                                 return headers;
                             }
+                            @Override
+                            public Priority getPriority() {
+                                // If you didn't use the setPriority method,
+                                // the priority is automatically set to NORMAL
+                                return Priority.IMMEDIATE;
+                            }
                         };
                 AppController.getInstance().addToRequestQueue(jsonObjReq, TAG_JSON_OBJ);
             }
