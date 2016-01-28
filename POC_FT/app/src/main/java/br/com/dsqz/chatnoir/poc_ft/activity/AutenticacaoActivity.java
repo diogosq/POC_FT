@@ -26,6 +26,7 @@ import java.util.Map;
 
 import br.com.dsqz.chatnoir.poc_ft.R;
 import br.com.dsqz.chatnoir.poc_ft.dto.Autenticacao;
+import br.com.dsqz.chatnoir.poc_ft.dto.Produto;
 import br.com.dsqz.chatnoir.poc_ft.dto.Usuario;
 import br.com.dsqz.chatnoir.poc_ft.lib.AppController;
 
@@ -105,6 +106,8 @@ public class AutenticacaoActivity extends Activity{
                                 try{
                                     if(response.getBoolean("sucesso")){
                                         mUsuario = new Gson().fromJson(response.getJSONObject("dados").toString(), Usuario.class);
+                                        Intent i = new Intent(AutenticacaoActivity.this, Produto.class);
+                                        startActivity(i);
                                     }else{
                                         Toast.makeText(getApplicationContext(), response.getString("mensagem"), Toast.LENGTH_SHORT).show();
                                     }

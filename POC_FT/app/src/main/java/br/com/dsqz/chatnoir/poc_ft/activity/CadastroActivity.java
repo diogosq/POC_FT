@@ -90,12 +90,15 @@ public class CadastroActivity extends Activity{
         nomeWatcher(mEditTextSenha, mIcon3, R.drawable.ic_senha, R.drawable.ic_senha_check);
         nomeWatcher(mEditTextCPF, mIcon4, R.drawable.ic_cpf, R.drawable.ic_cpf_check);
         nomeWatcher(mEditTextTelefone, mIcon5, R.drawable.ic_telefone, R.drawable.ic_telefone_check);
-        nomeWatcher(mEditTextCelular, mIcon6, R.drawable.ic_celular, R.drawable.ic_celular);
+        nomeWatcher(mEditTextCelular, mIcon6, R.drawable.ic_celular, R.drawable.ic_celular_check);
         nomeWatcher(mEditTextNascimento, mIcon7, R.drawable.ic_nascimento, R.drawable.ic_nascimento_check);
 
         setMasksToFields();
         initializeSpinner();
+        botaoConfirmarOnClickListener();
+    }
 
+    private void botaoConfirmarOnClickListener(){
         mButtonConfirmar.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){

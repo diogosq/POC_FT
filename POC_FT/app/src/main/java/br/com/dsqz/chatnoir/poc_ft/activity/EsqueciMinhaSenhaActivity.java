@@ -1,6 +1,7 @@
 package br.com.dsqz.chatnoir.poc_ft.activity;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -34,6 +35,7 @@ public class EsqueciMinhaSenhaActivity extends Activity{
     private Button   mButtonEnviar;
     private EditText mEditTextEmail;
     private Existe   mExiste;
+    private Dialog   mCustomDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -43,7 +45,21 @@ public class EsqueciMinhaSenhaActivity extends Activity{
         mButtonEnviar = (Button) findViewById(R.id.esqueciSenha_buttonEnviar);
         mEditTextEmail = (EditText) findViewById(R.id.esqueciSenha_editTextEmail);
 
+        customDialogInit();
+
         buttonEnviarOnClickListener();
+    }
+
+    private void customDialogInit(){
+        mCustomDialog = new Dialog(this);
+        mCustomDialog.setContentView(R.layout.custom_dialog_enviei_senha);
+        Button dialogButton = (Button) mCustomDialog.findViewById(R.id.esqueciSenha_buttonOk);
+        dialogButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                finish();
+            }
+        });
     }
 
     private void buttonEnviarOnClickListener(){
@@ -61,7 +77,8 @@ public class EsqueciMinhaSenhaActivity extends Activity{
                             if(response.getBoolean("sucesso")){
                                 mExiste = new Gson().fromJson(response.getJSONObject("dados").toString(), Existe.class);
                                 if(mExiste.existe){
-                                    Toast.makeText(getApplicationContext(), "Nova senha enviada", Toast.LENGTH_SHORT).show();
+                                    mEditTextEmail.setVisibility(View.INVISIBLE);
+                                    mCustomDialog.show();
                                 }else{
                                     Toast.makeText(getApplicationContext(), "Usuário não existe", Toast.LENGTH_SHORT).show();
                                 }
