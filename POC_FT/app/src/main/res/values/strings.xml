@@ -17,4 +17,10 @@
     <!-- -->
     <string name="esqueciSenha_edit1_hint">Digite seu e-mail cadastrado</string>
     <string name="esqueciSenha_button_text">Enviar</string>
+    <!-- -->
+    <string-array name="sexo_array">
+        <item></item>
+        <item>Masculino</item>
+        <item>Feminino</item>
+    </string-array>
 </resources>

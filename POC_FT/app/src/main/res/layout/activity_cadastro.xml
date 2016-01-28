@@ -27,6 +27,7 @@
     </RelativeLayout>
 
     <LinearLayout
+        android:id="@+id/cadastro_field_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/relativeLayout"
@@ -350,17 +351,83 @@
                     android:src="@drawable/ic_sexo"/>
             </RelativeLayout>
 
-            <EditText
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp">
+
+                <EditText
+                    android:id="@+id/non_active_edit_text6"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignStart="@+id/spinner_sexo"
+                    android:background="@null"
+                    android:focusable="false"
+                    android:fontFamily="sans-serif-light"
+                    android:hint="                                            (escolha uma opção)"
+                    android:inputType="textPassword"
+                    android:textColor="@color/textCinza"
+                    android:textSize="12sp"
+                    android:textStyle="italic"/>
+
+                <EditText
+                    android:id="@+id/non_active_edit_text5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignStart="@+id/spinner_sexo"
+                    android:background="@null"
+                    android:focusable="false"
+                    android:fontFamily="sans-serif"
+                    android:hint="Sexo"
+                    android:inputType="textPassword"
+                    android:textColor="@color/textCinza"
+                    android:textSize="@dimen/textsize16"/>
+
+                <Spinner
+                    android:id="@+id/spinner_sexo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="11.8dp"
+                    android:fontFamily="sans-serif"
+                    android:textColor="@color/textCinza"
+                    android:textSize="@dimen/textsize16"/>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginStart="76.7dp"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/checkbox_termosUso"
+                android:layout_width="24dp"
+                android:layout_height="24dp"/>
+
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginStart="11.8dp"
+                android:layout_marginStart="12.8dp"
                 android:fontFamily="sans-serif"
-                android:hint="Sexo"
+                android:text="Aceito os termos de uso"
                 android:textColor="@color/textCinza"
                 android:textSize="@dimen/textsize16"/>
         </LinearLayout>
-
+        <Button
+            android:id="@+id/buttonConfirmarCadastro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxWidth="218.9dp"
+            android:maxHeight="43dp"
+            android:layout_marginEnd="70.8dp"
+            android:layout_marginStart="70.3dp"
+            android:background="@color/blue"
+            android:fontFamily="sans-serif"
+            android:text="Confirmar cadastro"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textsize13_8"/>
     </LinearLayout>
-
-
 </RelativeLayout>
