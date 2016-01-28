@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -12,11 +13,32 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.Toast;
+
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.google.gson.Gson;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import br.com.dsqz.chatnoir.poc_ft.R;
+import br.com.dsqz.chatnoir.poc_ft.dto.Cadastro;
+import br.com.dsqz.chatnoir.poc_ft.lib.AppController;
 import br.com.jansenfelipe.androidmask.MaskEditTextChangedListener;
 
 public class CadastroActivity extends Activity{
+
+    private final String TAG_JSON_OBJ = getClass().getSimpleName() + "json_obj_req";
+    private final String TAG          = getClass().getSimpleName();
+    private final Gson   gson         = new Gson();
 
     private ImageView mIcon1;
     private ImageView mIcon2;
@@ -73,6 +95,69 @@ public class CadastroActivity extends Activity{
 
         setMasksToFields();
         initializeSpinner();
+
+        mButtonConfirmar.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Cadastro cadastro = new Cadastro();
+                cadastro.nome = mEditTextNome.getText().toString().trim();
+                cadastro.email = mEditTextEmail.getText().toString().trim();
+                cadastro.senha = mEditTextSenha.getText().toString().trim();
+                cadastro.cpf = mEditTextCPF.getText().toString().trim();
+                cadastro.telefone = mEditTextTelefone.getText().toString().trim();
+                cadastro.celular = mEditTextCelular.getText().toString().trim();
+                cadastro.nascimentoString = mEditTextNascimento.getText().toString().trim();
+                cadastro.sexo = mSpinnerSexo.getSelectedItem().toString().equals("Masculino")? "M" :
+                                mSpinnerSexo.getSelectedItem().toString().equals("Feminino")? "F" : "";
+
+                JSONObject jsonBody = null;
+                try{
+                    jsonBody = new JSONObject(gson.toJson(cadastro));
+                }catch(JSONException e){
+                    Log.e(TAG, e.getMessage(), e);
+                }
+
+                String url = getString(R.string.cadastro_url);
+
+                final JsonObjectRequest jsonObjReq =
+                        new JsonObjectRequest(Request.Method.POST, url, jsonBody, new Response.Listener<JSONObject>(){
+
+                            @Override
+                            public void onResponse(JSONObject response){
+                                Log.d(TAG, response.toString());
+                                try{
+                                    if(response.getBoolean("sucesso")){
+                                        Toast.makeText(getApplicationContext(), "Usuário cadastrado com sucesso", Toast.LENGTH_LONG).show();
+                                    }else{
+                                        Toast.makeText(getApplicationContext(), response.getString("mensagem"), Toast.LENGTH_SHORT).show();
+                                    }
+                                }catch(JSONException e){
+                                    Log.e(TAG, e.getMessage(), e);
+                                }
+                            }
+                        }, new Response.ErrorListener(){
+
+                            @Override
+                            public void onErrorResponse(VolleyError error){
+                                VolleyLog.d(TAG, "Error: " + error.getMessage());
+                            }
+                        }){
+                            @Override
+                            public Map<String, String> getHeaders() throws AuthFailureError{
+                                HashMap<String, String> headers = new HashMap<>();
+                                headers.put(getString(R.string.tokenkey), getString(R.string.token));
+                                headers.put(getString(R.string.Acceptkey), getString(R.string.Accept));
+                                return headers;
+                            }
+
+                            @Override
+                            public Priority getPriority(){
+                                return Priority.NORMAL;
+                            }
+                        };
+                AppController.getInstance().addToRequestQueue(jsonObjReq, TAG_JSON_OBJ);
+            }
+        });
     }
 
     private void nomeWatcher(@NonNull EditText view, @NonNull final ImageView icon, @NonNull final int iconDrawable1,

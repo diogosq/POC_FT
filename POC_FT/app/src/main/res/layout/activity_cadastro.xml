@@ -66,6 +66,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginStart="11.8dp"
                     android:fontFamily="sans-serif"
+                    android:inputType="textPersonName"
                     android:hint="Nome"
                     android:maxLength="100"
                     android:maxLines="1"
