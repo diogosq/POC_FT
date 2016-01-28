@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="253.2dp"
+                android:orientation="vertical"
+                android:padding="0.5dp">
+
+    <ImageView
+        android:id="@+id/foto_produto"
+        android:layout_width="161dp"
+        android:layout_height="161dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="31.3dp"
+        android:layout_marginEnd="99.5dp"
+        android:layout_marginStart="99.5dp"
+        android:layout_marginBottom="63.9dp"
+        android:background="@color/blue"
+        android:src="@drawable/splash_logo_teste"/>
+
+
+    <RelativeLayout
+        android:layout_marginTop="203.9dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true">
+
+        <TextView
+            android:id="@+id/produto_descriicao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginBottom="33.3dp"
+            android:layout_marginEnd="152.7dp"
+            android:layout_marginStart="36.3dp"
+            android:fontFamily="sans-serif"
+            android:text="Carga gilete mach3"
+            android:textAlignment="textStart"
+            android:textColor="@color/textCinza2"
+            android:textSize="@dimen/textsize16"/>
+
+        <TextView
+            android:id="@+id/produto_preco"
+            android:layout_width="74dp"
+            android:layout_height="24dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginBottom="30.8dp"
+            android:layout_marginEnd="35.2dp"
+            android:layout_marginStart="250.8dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="R$99,99"
+            android:textAlignment="textEnd"
+            android:textColor="@color/colorPrimaryClean"
+            android:textSize="@dimen/textsize20"/>
+    </RelativeLayout>
+
+</RelativeLayout>

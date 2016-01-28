@@ -106,7 +106,7 @@ public class AutenticacaoActivity extends Activity{
                                 try{
                                     if(response.getBoolean("sucesso")){
                                         mUsuario = new Gson().fromJson(response.getJSONObject("dados").toString(), Usuario.class);
-                                        Intent i = new Intent(AutenticacaoActivity.this, Produto.class);
+                                        Intent i = new Intent(AutenticacaoActivity.this, ProdutoActivity.class);
                                         startActivity(i);
                                     }else{
                                         Toast.makeText(getApplicationContext(), response.getString("mensagem"), Toast.LENGTH_SHORT).show();

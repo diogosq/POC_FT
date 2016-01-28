@@ -6,4 +6,5 @@ public class Foto{
     public String  criacao;
     public Boolean padrao;
     public String  idProduto;
+    public String  localPath;
 }
