@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/imgLogo1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="@dimen/esqueciSenha_logo1_margin_bottom"
@@ -25,20 +25,23 @@
 
     <EditText
         android:id="@+id/esqueciSenha_editTextEmail"
-        android:layout_width="@dimen/esqueciSenha_etittext_width"
-        android:layout_height="@dimen/esqueciSenha_etittext_height"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_marginBottom="@dimen/esqueciSenha_edit1_margin_bottom"
         android:layout_marginEnd="@dimen/esqueciSenha_edit1_margin_end"
         android:layout_marginStart="@dimen/esqueciSenha_edit1_margin_start"
         android:layout_marginTop="@dimen/esqueciSenha_edit1_margin_top"
         android:hint="@string/esqueciSenha_edit1_hint"
+        android:maxHeight="@dimen/esqueciSenha_etittext_height"
+        android:maxLength="22"
+        android:maxWidth="@dimen/esqueciSenha_etittext_width"
         android:shadowColor="@color/white"
+        android:singleLine="true"
         android:textColor="@color/white"
         android:textColorHighlight="@color/white"
         android:textColorHint="@color/white"
         android:textColorLink="@color/white"
-        android:maxLength="22"
-        android:singleLine="true"/>
+        android:textSize="16sp"/>
 
     <Button
         android:id="@+id/esqueciSenha_buttonEnviar"
@@ -50,6 +53,7 @@
         android:layout_marginTop="@dimen/esqueciSenha_button_margin_top"
         android:background="@color/blue"
         android:text="@string/esqueciSenha_button_text"
-        android:textColor="@color/white"/>
+        android:textColor="@color/white"
+        android:textSize="13.8sp"/>
 
 </RelativeLayout>

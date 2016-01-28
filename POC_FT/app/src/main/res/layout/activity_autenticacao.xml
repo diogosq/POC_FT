@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/imgLogo1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="@dimen/autenticacao_logo1_margin_bottom"
@@ -31,14 +31,16 @@
         android:layout_marginEnd="@dimen/autenticacao_edit1_margin_end"
         android:layout_marginStart="@dimen/autenticacao_edit1_margin_start"
         android:layout_marginTop="@dimen/autenticacao_edit1_margin_top"
+        android:fontFamily="sans-serif"
         android:hint="@string/autenticacao_edit1_hint"
+        android:maxLength="50"
         android:shadowColor="@color/white"
+        android:singleLine="true"
         android:textColor="@color/white"
         android:textColorHighlight="@color/white"
         android:textColorHint="@color/white"
         android:textColorLink="@color/white"
-        android:maxLength="50"
-        android:singleLine="true"/>
+        android:textSize="20sp"/>
 
     <EditText
         android:id="@+id/autenticacao_editTextSenha"
@@ -48,49 +50,59 @@
         android:layout_marginEnd="@dimen/autenticacao_edit2_margin_end"
         android:layout_marginStart="@dimen/autenticacao_edit2_margin_start"
         android:layout_marginTop="@dimen/autenticacao_edit2_margin_top"
+        android:fontFamily="sans-serif"
         android:hint="@string/autenticacao_edit2_hint"
+        android:maxLength="50"
         android:password="true"
         android:shadowColor="@color/white"
+        android:singleLine="true"
         android:textColor="@color/white"
         android:textColorHighlight="@color/white"
         android:textColorHint="@color/white"
         android:textColorLink="@color/white"
-        android:maxLength="50"
-        android:singleLine="true"/>
+        android:textSize="20sp"/>
 
     <Button
         android:id="@+id/buttonEntrar"
         android:layout_width="@dimen/default_button_width"
         android:layout_height="@dimen/default_button_height"
+        android:maxWidth="@dimen/default_button_width"
+        android:maxHeight="@dimen/default_button_height"
         android:layout_marginBottom="@dimen/autenticacao_button_margin_bottom"
         android:layout_marginEnd="@dimen/autenticacao_button_margin_end"
         android:layout_marginStart="@dimen/autenticacao_button_margin_start"
         android:layout_marginTop="@dimen/autenticacao_button_margin_top"
         android:background="@color/blue"
+        android:fontFamily="sans-serif"
         android:text="@string/autenticacao_button_text"
-        android:textColor="@color/white"/>
+        android:textColor="@color/white"
+        android:textSize="13.8sp"/>
 
 
     <TextView
         android:id="@+id/autenticacao_textViewCadastrar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_marginBottom="101.6dp"
         android:layout_marginEnd="115.5dp"
         android:layout_marginStart="115.5dp"
         android:layout_marginTop="450.4dp"
+        android:fontFamily="sans-serif"
         android:text="@string/autenticacao_quero_me_cadastrar"
-        android:textColor="@color/white"/>
+        android:textColor="@color/white"
+        android:textSize="13.8sp"/>
 
     <TextView
         android:id="@+id/autenticacao_textViewEsqueci"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_marginBottom="63.5dp"
         android:layout_marginEnd="69.5dp"
         android:layout_marginStart="69.5dp"
         android:layout_marginTop="488.5dp"
+        android:fontFamily="sans-serif"
         android:text="@string/autenticacao_esqueceu_sua_senha"
-        android:textColor="@color/white"/>
+        android:textColor="@color/white"
+        android:textSize="13.8sp"/>
 
 </RelativeLayout>
