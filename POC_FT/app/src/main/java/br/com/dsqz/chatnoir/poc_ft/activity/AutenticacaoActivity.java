@@ -35,12 +35,12 @@ public class AutenticacaoActivity extends Activity{
     private final String TAG          = getClass().getSimpleName();
     private final Gson   gson         = new Gson();
 
-    private Button   mButtonEntrar;
-    private EditText mEditTextUsuario;
-    private EditText mEditTextSenha;
-    private TextView mCadastro;
-    private TextView mEsqueci;
-    private Usuario  mUsuario;
+    private                              Button   mButtonEntrar;
+    private                              EditText mEditTextUsuario;
+    private                              EditText mEditTextSenha;
+    private                              TextView mCadastro;
+    private                              TextView mEsqueci;
+    @SuppressWarnings ("unused") private Usuario  mUsuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -121,7 +121,7 @@ public class AutenticacaoActivity extends Activity{
                         }){
                             @Override
                             public Map<String, String> getHeaders() throws AuthFailureError{
-                                HashMap<String, String> headers = new HashMap<String, String>();
+                                HashMap<String, String> headers = new HashMap<>();
                                 headers.put(getString(R.string.tokenkey), getString(R.string.token));
                                 headers.put(getString(R.string.Acceptkey), getString(R.string.Accept));
                                 return headers;

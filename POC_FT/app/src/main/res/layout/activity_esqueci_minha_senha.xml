@@ -25,12 +25,14 @@
 
     <EditText
         android:id="@+id/esqueciSenha_editTextEmail"
+        android:inputType="textEmailAddress"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="@dimen/esqueciSenha_edit1_margin_bottom"
         android:layout_marginEnd="@dimen/esqueciSenha_edit1_margin_end"
         android:layout_marginStart="@dimen/esqueciSenha_edit1_margin_start"
         android:layout_marginTop="@dimen/esqueciSenha_edit1_margin_top"
+        android:fontFamily="sans-serif"
         android:hint="@string/esqueciSenha_edit1_hint"
         android:maxHeight="@dimen/esqueciSenha_etittext_height"
         android:maxLength="22"
@@ -41,7 +43,7 @@
         android:textColorHighlight="@color/white"
         android:textColorHint="@color/white"
         android:textColorLink="@color/white"
-        android:textSize="16sp"/>
+        android:textSize="@dimen/textsize16"/>
 
     <Button
         android:id="@+id/esqueciSenha_buttonEnviar"
@@ -52,8 +54,9 @@
         android:layout_marginStart="@dimen/esqueciSenha_button_margin_start"
         android:layout_marginTop="@dimen/esqueciSenha_button_margin_top"
         android:background="@color/blue"
+        android:fontFamily="sans-serif"
         android:text="@string/esqueciSenha_button_text"
         android:textColor="@color/white"
-        android:textSize="13.8sp"/>
+        android:textSize="@dimen/textsize13_8"/>
 
 </RelativeLayout>

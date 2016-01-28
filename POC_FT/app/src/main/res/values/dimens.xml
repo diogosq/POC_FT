@@ -1,7 +1,10 @@
 <resources>
+    <dimen name="textsize16">16sp</dimen>
+    <dimen name="textsize20">20sp</dimen>
+    <dimen name="textsize13_8" type="dimen" format="float">13.8sp</dimen>
     <dimen name="default_button_height">43dp</dimen>
     <dimen name="default_button_width" format="float" type="dimen">138.3dp</dimen>
-
+    <!-- -->
     <dimen name="splashscreen_logo1_margin_right" format="float" type="dimen">57.9dp</dimen>
     <dimen name="splashscreen_logo1_margin_left" format="float" type="dimen">58.9dp</dimen>
     <dimen name="splashscreen_logo2_margin_right" format="float" type="dimen">120.2dp</dimen>
@@ -14,7 +17,7 @@
     <dimen name="splashscreen_logo1_margin_top">240dp</dimen>
     <dimen name="splashscreen_logo1_margin_bottom">239dp</dimen>
     <dimen name="splashscreen_logo2_margin_bottom">51dp</dimen>
-
+    <!-- -->
     <dimen name="autenticacao_logo1_margin_top" format="float" type="dimen">87.6dp</dimen>
     <dimen name="autenticacao_logo1_margin_end" format="float" type="dimen">106.8dp</dimen>
     <dimen name="autenticacao_logo1_margin_start" format="float" type="dimen">105.8dp</dimen>
@@ -35,7 +38,7 @@
     <dimen name="autenticacao_button_margin_bottom" format="float" type="dimen">140.5dp</dimen>
     <dimen name="autenticacao_button_margin_start" format="float" type="dimen">110.7dp</dimen>
     <dimen name="autenticacao_button_margin_top" format="float" type="dimen">384.5dp</dimen>
-
+    <!-- -->
     <dimen name="esqueciSenha_logo1_margin_bottom" type="dimen" format="float">293.4dp</dimen>
     <dimen name="esqueciSenha_logo1_margin_end" type="dimen" format="float">106.2dp</dimen>
     <dimen name="esqueciSenha_logo1_margin_start" type="dimen" format="float">105.8dp</dimen>
@@ -52,4 +55,6 @@
     <dimen name="esqueciSenha_button_margin_bottom" type="dimen" format="float">153.7dp</dimen>
     <dimen name="esqueciSenha_button_margin_start" type="dimen" format="float">110.7dp</dimen>
     <dimen name="esqueciSenha_button_margin_top" type="dimen" format="float">371.3dp</dimen>
+    <!-- -->
+
 </resources>

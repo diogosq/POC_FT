@@ -53,7 +53,7 @@
         android:fontFamily="sans-serif"
         android:hint="@string/autenticacao_edit2_hint"
         android:maxLength="50"
-        android:password="true"
+        android:inputType="textPassword"
         android:shadowColor="@color/white"
         android:singleLine="true"
         android:textColor="@color/white"
@@ -76,7 +76,7 @@
         android:fontFamily="sans-serif"
         android:text="@string/autenticacao_button_text"
         android:textColor="@color/white"
-        android:textSize="13.8sp"/>
+        android:textSize="@dimen/textsize13_8"/>
 
 
     <TextView
@@ -90,7 +90,7 @@
         android:fontFamily="sans-serif"
         android:text="@string/autenticacao_quero_me_cadastrar"
         android:textColor="@color/white"
-        android:textSize="13.8sp"/>
+        android:textSize="@dimen/textsize13_8"/>
 
     <TextView
         android:id="@+id/autenticacao_textViewEsqueci"
@@ -103,6 +103,6 @@
         android:fontFamily="sans-serif"
         android:text="@string/autenticacao_esqueceu_sua_senha"
         android:textColor="@color/white"
-        android:textSize="13.8sp"/>
+        android:textSize="@dimen/textsize13_8"/>
 
 </RelativeLayout>
