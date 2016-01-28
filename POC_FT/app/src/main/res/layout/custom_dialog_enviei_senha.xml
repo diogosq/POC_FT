@@ -26,7 +26,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="61dp"
         android:fontFamily="sans-serif"
-        android:text="Mandamos uma nova senha\n para seu e-mail cadastrado\n nem nosso banco de dados.\n Se tiver alguma dúvida, entre\n em contato conosco "
+        android:text="Mandamos uma nova senha para seu e-mail cadastrado nem nosso banco de dados. Se tiver alguma dúvida, entre em contato conosco "
         android:textColor="@color/text"
         android:textSize="@dimen/textsize16"/>
     <Button
