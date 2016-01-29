@@ -24,6 +24,7 @@
 
 
     <EditText
+        android:text="teste@fourtime.com"
         android:id="@+id/autenticacao_editTextUsuario"
         android:layout_width="@dimen/autenticacao_etittext_width"
         android:layout_height="@dimen/autenticacao_etittext_height"
@@ -43,6 +44,7 @@
         android:textSize="20sp"/>
 
     <EditText
+        android:text="senha"
         android:id="@+id/autenticacao_editTextSenha"
         android:layout_width="@dimen/autenticacao_etittext_width"
         android:layout_height="@dimen/autenticacao_etittext_height"

@@ -1,17 +1,11 @@
 package br.com.dsqz.chatnoir.poc_ft.list;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 
@@ -50,13 +44,13 @@ public class ProdutoAdapter extends RecyclerView.Adapter{
 
         ProdutoViewHolder produtoViewHolder = (ProdutoViewHolder) holder;
 
-        produtoViewHolder.getmDescricaoView().setText(produto.descriCao);
+        produtoViewHolder.getmDescricaoView().setText(produto.descricao);
         produtoViewHolder.getmPrecoView().setText(format.format(produto.preco));
         produtoViewHolder.getmFotoView().setImageBitmap(ImageSaveLoad.loadImage(produto.fotos.get(0).localPath,produto.fotos.get(0).id));
     }
 
     @Override
     public int getItemCount(){
-        return mItens.size();
+        return (mItens == null)?0:mItens.size();
     }
 }

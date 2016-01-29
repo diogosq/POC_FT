@@ -1,6 +1,8 @@
 <resources>
     <string name="autenticacao_url">http://api.lojas.club/api/cliente/autenticar</string>
     <string name="esqueci_senha_url">http://api.lojas.club/api/cliente/esqueci/</string>
+    <string name="cadastro_url">http://api.lojas.club/api/cliente/</string>
+    <string name="produtos_destaque_url">http://api.lojas.club/api/produto/destaques</string>
     <!-- -->
     <string name="app_name">POC_FT</string>
     <string name="autenticacao_quero_me_cadastrar"><u>Quero me cadastrar</u></string>
@@ -17,7 +19,6 @@
     <!-- -->
     <string name="esqueciSenha_edit1_hint">Digite seu e-mail cadastrado</string>
     <string name="esqueciSenha_button_text">Enviar</string>
-    <string name="cadastro_url">http://api.lojas.club/api/cliente/</string>
     <!-- -->
     <string-array name="sexo_array">
         <item></item>

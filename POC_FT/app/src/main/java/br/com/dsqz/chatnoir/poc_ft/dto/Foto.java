@@ -1,10 +1,25 @@
 package br.com.dsqz.chatnoir.poc_ft.dto;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 public class Foto{
 
-    public String  id;
-    public String  criacao;
+    @SerializedName ("id")
+    @Expose
+    public String id;
+
+    @SerializedName ("criacao")
+    @Expose
+    public String criacao;
+
+    @SerializedName ("padrao")
+    @Expose
     public Boolean padrao;
-    public String  idProduto;
-    public String  localPath;
+
+    @SerializedName ("idProduto")
+    @Expose
+    public String idProduto;
+
+    public String localPath;
 }
