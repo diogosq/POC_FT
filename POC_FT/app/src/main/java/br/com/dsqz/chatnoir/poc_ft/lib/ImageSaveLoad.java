@@ -54,11 +54,10 @@ public class ImageSaveLoad{
      * @param imagePath path
      * @return bitmap
      */
-    public static Bitmap loadImage(String imageName, String imagePath){
+    public static Bitmap loadImage(String imagePath, String imageName){
         Bitmap image = null;
         try{
-            File f = new File(imagePath, imageName);
-            image = BitmapFactory.decodeStream(new FileInputStream(f));
+            image = BitmapFactory.decodeStream(new FileInputStream( new File(imagePath, imageName)));
         }catch(FileNotFoundException e){
             Log.e(TAG, e.getMessage(), e);
         }

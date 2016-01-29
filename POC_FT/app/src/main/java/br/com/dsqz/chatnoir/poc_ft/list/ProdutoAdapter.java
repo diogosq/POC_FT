@@ -46,11 +46,14 @@ public class ProdutoAdapter extends RecyclerView.Adapter{
 
         produtoViewHolder.getmDescricaoView().setText(produto.descricao);
         produtoViewHolder.getmPrecoView().setText(format.format(produto.preco));
-        produtoViewHolder.getmFotoView().setImageBitmap(ImageSaveLoad.loadImage(produto.fotos.get(0).localPath,produto.fotos.get(0).id));
+        produtoViewHolder.getmFotoView()
+                         .setImageBitmap(ImageSaveLoad.loadImage(produto.fotos.get(0).localPath, produto.fotos.get(0).id + ".png"));
     }
 
     @Override
     public int getItemCount(){
-        return (mItens == null)?0:mItens.size();
+        return (mItens == null)? 0 : mItens.size();
     }
+
+
 }

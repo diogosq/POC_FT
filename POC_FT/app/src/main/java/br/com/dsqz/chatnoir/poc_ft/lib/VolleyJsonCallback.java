@@ -5,6 +5,6 @@ import org.json.JSONObject;
 /**
  * Created by diogosq on 1/29/16.
  */
-public interface VolleyCallback{
-    void onSuccess(JSONObject string);
+public interface VolleyJsonCallback{
+    void onSuccess(JSONObject string,Object... info);
 }

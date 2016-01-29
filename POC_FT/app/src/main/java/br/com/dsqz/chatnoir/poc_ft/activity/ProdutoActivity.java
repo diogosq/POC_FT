@@ -1,6 +1,7 @@
 package br.com.dsqz.chatnoir.poc_ft.activity;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -13,6 +14,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -28,8 +30,10 @@ import java.util.Map;
 import br.com.dsqz.chatnoir.poc_ft.R;
 import br.com.dsqz.chatnoir.poc_ft.dto.Produto;
 import br.com.dsqz.chatnoir.poc_ft.lib.AppController;
+import br.com.dsqz.chatnoir.poc_ft.lib.ImageSaveLoad;
 import br.com.dsqz.chatnoir.poc_ft.lib.ProdutoDeserializer;
-import br.com.dsqz.chatnoir.poc_ft.lib.VolleyCallback;
+import br.com.dsqz.chatnoir.poc_ft.lib.VolleyImgCallback;
+import br.com.dsqz.chatnoir.poc_ft.lib.VolleyJsonCallback;
 import br.com.dsqz.chatnoir.poc_ft.list.ProdutoAdapter;
 
 public class ProdutoActivity extends Activity{
@@ -42,6 +46,7 @@ public class ProdutoActivity extends Activity{
     private ProdutoAdapter     mProdutoAdapter;
     private GsonBuilder        mGsonBuilder;
     private Gson               mGson;
+    private int                load;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -54,29 +59,76 @@ public class ProdutoActivity extends Activity{
 
         mRecyclerViewProdutos = (RecyclerView) findViewById(R.id.recycleView_produtos);
 
-        initializeProdutos(new VolleyCallback(){
+        final LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        mRecyclerViewProdutos.setLayoutManager(layoutManager);
+
+        initializeProdutos();
+    }
+
+    private void initializeProdutos(){
+
+        consultarServicoProduto(new VolleyJsonCallback(){
+
             @Override
-            public void onSuccess(JSONObject response){
+            public void onSuccess(final JSONObject response, Object... info){
                 try{
                     mProdutos = mGson.fromJson(response.getJSONArray("lista").toString(), new TypeToken<ArrayList<Produto>>(){}.getType());
+                    load = mProdutos.size();
+
+                    for(Produto p : mProdutos){
+                        baixarFoto(p.id, p.fotos.get(0).id, new VolleyImgCallback(){
+                            @Override
+                            public void onSuccess(ImageLoader.ImageContainer img, Object... info){
+
+                                for(Produto p : mProdutos){
+                                    if(p.id.equals(info[0])){
+
+                                        p.fotos.get(0).localPath = ImageSaveLoad
+                                                .saveToInternalSorage(img.getBitmap(), getApplicationContext(),
+                                                                      getResources().getString(R.string.image_folder), Context.MODE_PRIVATE,
+                                                                      p.fotos.get(0).id + ".png");
+                                        load--;
+                                        break;
+                                    }
+                                }
+                                if(load == 0){
+                                    mProdutoAdapter = new ProdutoAdapter(getApplicationContext(), mProdutos);
+                                    mRecyclerViewProdutos.setAdapter(mProdutoAdapter);
+                                    mRecyclerViewProdutos.setItemAnimator(new DefaultItemAnimator());
+                                    mRecyclerViewProdutos.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+                                }
+                            }
+                        });
+                    }
                 }catch(JSONException e){
                     Log.e(TAG, e.getMessage(), e);
                 }
             }
         });
-
-        mProdutoAdapter = new ProdutoAdapter(getApplicationContext(), mProdutos);
-        mRecyclerViewProdutos.setAdapter(mProdutoAdapter);
-        mRecyclerViewProdutos.setItemAnimator(new DefaultItemAnimator());
-        mRecyclerViewProdutos.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
     }
 
-    private void initializeProdutos(VolleyCallback volleyCallback){
+    private void baixarFoto(final String produtoid, String fotoId, final VolleyImgCallback callback){
 
-        consultarServicoProduto(volleyCallback);
+        String url = String.format(getString(R.string.fotos_url), fotoId);
+
+        ImageLoader imageLoader = AppController.getInstance().getImageLoader();
+        imageLoader.get(url, new ImageLoader.ImageListener(){
+            @Override
+            public void onResponse(ImageLoader.ImageContainer response, boolean isImmediate){
+                if(response.getBitmap() != null){
+                    callback.onSuccess(response, produtoid);
+                }
+            }
+
+            @Override
+            public void onErrorResponse(VolleyError error){
+                VolleyLog.d(TAG, "Error: " + error.getMessage());
+            }
+        });
     }
 
-    private void consultarServicoProduto(final VolleyCallback callback){
+    private void consultarServicoProduto(final VolleyJsonCallback callback){
 
         String url = getString(R.string.produtos_destaque_url);
 
