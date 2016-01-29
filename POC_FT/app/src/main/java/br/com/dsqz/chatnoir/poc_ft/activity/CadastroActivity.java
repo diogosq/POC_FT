@@ -1,6 +1,9 @@
 package br.com.dsqz.chatnoir.poc_ft.activity;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
+import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.text.Editable;
@@ -30,7 +33,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 import br.com.dsqz.chatnoir.poc_ft.R;
+import br.com.dsqz.chatnoir.poc_ft.dto.Autenticacao;
 import br.com.dsqz.chatnoir.poc_ft.dto.Cadastro;
+import br.com.dsqz.chatnoir.poc_ft.dto.Usuario;
 import br.com.dsqz.chatnoir.poc_ft.lib.AppController;
 import br.com.jansenfelipe.androidmask.MaskEditTextChangedListener;
 
@@ -102,6 +107,7 @@ public class CadastroActivity extends Activity{
         mButtonConfirmar.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
+
                 Cadastro cadastro = new Cadastro();
                 cadastro.nome = mEditTextNome.getText().toString().trim();
                 cadastro.email = mEditTextEmail.getText().toString().trim();
@@ -113,52 +119,68 @@ public class CadastroActivity extends Activity{
                 cadastro.sexo = mSpinnerSexo.getSelectedItem().toString().equals("Masculino")? "M" :
                                 mSpinnerSexo.getSelectedItem().toString().equals("Feminino")? "F" : "";
 
-                JSONObject jsonBody = null;
-                try{
-                    jsonBody = new JSONObject(gson.toJson(cadastro));
-                }catch(JSONException e){
-                    Log.e(TAG, e.getMessage(), e);
-                }
+                final ProgressDialog dialog = ProgressDialog.show(CadastroActivity.this, "", "Loading. Please wait...", true);
+                dialog.show();
+                new AsyncTask<Cadastro, Void, Void>(){
+                    @Override
+                    protected Void doInBackground(Cadastro... params)
+                    {
+                        JSONObject jsonBody = null;
+                        try{
+                            jsonBody = new JSONObject(gson.toJson(params[0]));
+                        }catch(JSONException e){
+                            Log.e(TAG, e.getMessage(), e);
+                        }
 
-                String url = getString(R.string.cadastro_url);
+                        String url = getString(R.string.cadastro_url);
+                        final JsonObjectRequest jsonObjReq =
+                                new JsonObjectRequest(Request.Method.POST, url, jsonBody, new Response.Listener<JSONObject>(){
 
-                final JsonObjectRequest jsonObjReq =
-                        new JsonObjectRequest(Request.Method.POST, url, jsonBody, new Response.Listener<JSONObject>(){
-
-                            @Override
-                            public void onResponse(JSONObject response){
-                                Log.d(TAG, response.toString());
-                                try{
-                                    if(response.getBoolean("sucesso")){
-                                        Toast.makeText(getApplicationContext(), "Usuário cadastrado com sucesso", Toast.LENGTH_LONG).show();
-                                    }else{
-                                        Toast.makeText(getApplicationContext(), response.getString("mensagem"), Toast.LENGTH_SHORT).show();
+                                    @Override
+                                    public void onResponse(JSONObject response){
+                                        dialog.dismiss();
+                                        Log.d(TAG, response.toString());
+                                        try{
+                                            if(response.getBoolean("sucesso")){
+                                                Toast.makeText(getApplicationContext(), "Usuário cadastrado com sucesso", Toast.LENGTH_LONG).show();
+                                            }else{
+                                                Toast.makeText(getApplicationContext(), response.getString("mensagem"), Toast.LENGTH_SHORT).show();
+                                            }
+                                        }catch(JSONException e){
+                                            Log.e(TAG, e.getMessage(), e);
+                                        }
                                     }
-                                }catch(JSONException e){
-                                    Log.e(TAG, e.getMessage(), e);
-                                }
-                            }
-                        }, new Response.ErrorListener(){
+                                }, new Response.ErrorListener(){
 
-                            @Override
-                            public void onErrorResponse(VolleyError error){
-                                VolleyLog.d(TAG, "Error: " + error.getMessage());
-                            }
-                        }){
-                            @Override
-                            public Map<String, String> getHeaders() throws AuthFailureError{
-                                HashMap<String, String> headers = new HashMap<>();
-                                headers.put(getString(R.string.tokenkey), getString(R.string.token));
-                                headers.put(getString(R.string.Acceptkey), getString(R.string.Accept));
-                                return headers;
-                            }
+                                    @Override
+                                    public void onErrorResponse(VolleyError error){
+                                        dialog.dismiss();
+                                        VolleyLog.d(TAG, "Error: " + error.getMessage());
+                                    }
+                                }){
+                                    @Override
+                                    public Map<String, String> getHeaders() throws AuthFailureError{
+                                        HashMap<String, String> headers = new HashMap<>();
+                                        headers.put(getString(R.string.tokenkey), getString(R.string.token));
+                                        headers.put(getString(R.string.Acceptkey), getString(R.string.Accept));
+                                        return headers;
+                                    }
 
-                            @Override
-                            public Priority getPriority(){
-                                return Priority.NORMAL;
-                            }
-                        };
-                AppController.getInstance().addToRequestQueue(jsonObjReq, TAG_JSON_OBJ);
+                                    @Override
+                                    public Priority getPriority(){
+                                        return Priority.NORMAL;
+                                    }
+                                };
+                        AppController.getInstance().addToRequestQueue(jsonObjReq, TAG_JSON_OBJ);
+                        return null;
+                    }
+
+                    @Override
+                    protected void onPostExecute(Void result)
+                    {
+
+                    }
+                }.execute(cadastro);
             }
         });
     }
