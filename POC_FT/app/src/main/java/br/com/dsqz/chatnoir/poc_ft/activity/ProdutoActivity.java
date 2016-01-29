@@ -1,7 +1,9 @@
 package br.com.dsqz.chatnoir.poc_ft.activity;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -68,44 +70,73 @@ public class ProdutoActivity extends Activity{
 
     private void initializeProdutos(){
 
-        consultarServicoProduto(new VolleyJsonCallback(){
+        final ProgressDialog dialog = ProgressDialog.show(ProdutoActivity.this, "", "Loading. Please wait...", true);
+        dialog.show();
+
+        new AsyncTask<Void, Void, Void>(){
 
             @Override
-            public void onSuccess(final JSONObject response, Object... info){
-                try{
-                    mProdutos = mGson.fromJson(response.getJSONArray("lista").toString(), new TypeToken<ArrayList<Produto>>(){}.getType());
-                    load = mProdutos.size();
+            protected Void doInBackground(Void... params){
 
-                    for(Produto p : mProdutos){
-                        baixarFoto(p.id, p.fotos.get(0).id, new VolleyImgCallback(){
-                            @Override
-                            public void onSuccess(ImageLoader.ImageContainer img, Object... info){
+                consultarServicoProduto(new VolleyJsonCallback(){
 
-                                for(int pos =0;pos<mProdutos.size();pos++){
-                                    if(mProdutos.get(pos).id.equals(info[0])){
-
-                                        mProdutos.get(pos).fotos.get(0).localPath = ImageSaveLoad
-                                                .saveToInternalSorage(img.getBitmap(), getApplicationContext(),
-                                                                      getResources().getString(R.string.image_folder), Context.MODE_PRIVATE,
-                                                                      mProdutos.get(pos).fotos.get(0).id + ".png");
-                                        load--;
-                                        break;
-                                    }
-                                }
-                                if(load == 0){
-                                    mProdutoAdapter = new ProdutoAdapter(getApplicationContext(), mProdutos);
-                                    mRecyclerViewProdutos.setAdapter(mProdutoAdapter);
-                                    mRecyclerViewProdutos.setItemAnimator(new DefaultItemAnimator());
-                                    mRecyclerViewProdutos.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-                                }
-                            }
-                        });
+                    @Override
+                    public void onError(){
+                        if(dialog.isShowing()){
+                            dialog.dismiss();
+                        }
                     }
-                }catch(JSONException e){
-                    Log.e(TAG, e.getMessage(), e);
-                }
+
+                    @Override
+                    public void onSuccess(final JSONObject response, Object... info){
+                        try{
+                            mProdutos = mGson.fromJson(response.getJSONArray("lista").toString(),
+                                                       new TypeToken<ArrayList<Produto>>(){}.getType());
+                            load = mProdutos.size();
+
+                            for(Produto p : mProdutos){
+                                baixarFoto(p.id, p.fotos.get(0).id, new VolleyImgCallback(){
+                                    @Override
+                                    public void onSuccess(ImageLoader.ImageContainer img, Object... info){
+
+                                        for(int pos = 0; pos < mProdutos.size(); pos++){
+                                            if(mProdutos.get(pos).id.equals(info[0])){
+
+                                                mProdutos.get(pos).fotos.get(0).localPath = ImageSaveLoad
+                                                        .saveToInternalSorage(img.getBitmap(), getApplicationContext(),
+                                                                              getResources().getString(R.string.image_folder),
+                                                                              Context.MODE_PRIVATE,
+                                                                              mProdutos.get(pos).fotos.get(0).id + ".png");
+                                                load--;
+                                                break;
+                                            }
+                                        }
+                                        if(load == 0){
+                                            mProdutoAdapter = new ProdutoAdapter(getApplicationContext(), mProdutos);
+                                            mRecyclerViewProdutos.setAdapter(mProdutoAdapter);
+                                            mRecyclerViewProdutos.setItemAnimator(new DefaultItemAnimator());
+                                            mRecyclerViewProdutos.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+                                            if(dialog.isShowing()){
+                                                dialog.dismiss();
+                                            }
+                                        }
+                                    }
+                                });
+                            }
+                        }catch(JSONException e){
+                            if(dialog.isShowing()){
+                                dialog.dismiss();
+                            }
+                            Log.e(TAG, e.getMessage(), e);
+                        }
+                    }
+
+                });
+
+                return null;
             }
-        });
+        }.execute();
+
     }
 
     private void baixarFoto(final String produtoid, String fotoId, final VolleyImgCallback callback){
@@ -123,6 +154,7 @@ public class ProdutoActivity extends Activity{
 
             @Override
             public void onErrorResponse(VolleyError error){
+
                 VolleyLog.d(TAG, "Error: " + error.getMessage());
             }
         });
@@ -130,44 +162,53 @@ public class ProdutoActivity extends Activity{
 
     private void consultarServicoProduto(final VolleyJsonCallback callback){
 
-        String url = getString(R.string.produtos_destaque_url);
-
-        final JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET, url, new Response.Listener<JSONObject>(){
-
+        new AsyncTask<Void, Void, Void>(){
             @Override
-            public void onResponse(JSONObject response){
-                Log.d(TAG, response.toString());
-                try{
-                    if(response.getBoolean("sucesso")){
-                        callback.onSuccess(response);
-                    }else{
-                        Toast.makeText(getApplicationContext(), response.getString("mensagem"), Toast.LENGTH_SHORT).show();
+            protected Void doInBackground(Void... params){
+
+                String url = getString(R.string.produtos_destaque_url);
+
+                final JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET, url, new Response.Listener<JSONObject>(){
+
+                    @Override
+                    public void onResponse(JSONObject response){
+                        Log.d(TAG, response.toString());
+                        try{
+                            if(response.getBoolean("sucesso")){
+                                callback.onSuccess(response);
+                            }else{
+                                Toast.makeText(getApplicationContext(), response.getString("mensagem"), Toast.LENGTH_SHORT).show();
+                            }
+                        }catch(JSONException e){
+                            Log.e(TAG, e.getMessage(), e);
+                        }
                     }
-                }catch(JSONException e){
-                    Log.e(TAG, e.getMessage(), e);
-                }
-            }
-        }, new Response.ErrorListener(){
+                }, new Response.ErrorListener(){
 
-            @Override
-            public void onErrorResponse(VolleyError error){
-                VolleyLog.d(TAG, "Error: " + error.getMessage());
-            }
-        }){
-            @Override
-            public Map<String, String> getHeaders() throws AuthFailureError{
-                HashMap<String, String> headers = new HashMap<>();
-                headers.put(getString(R.string.tokenkey), getString(R.string.token));
-                headers.put(getString(R.string.Acceptkey), getString(R.string.Accept));
-                return headers;
-            }
+                    @Override
+                    public void onErrorResponse(VolleyError error){
+                        VolleyLog.d(TAG, "Error: " + error.getMessage());
+                        callback.onError();
+                    }
+                }){
+                    @Override
+                    public Map<String, String> getHeaders() throws AuthFailureError{
+                        HashMap<String, String> headers = new HashMap<>();
+                        headers.put(getString(R.string.tokenkey), getString(R.string.token));
+                        headers.put(getString(R.string.Acceptkey), getString(R.string.Accept));
+                        return headers;
+                    }
 
-            @Override
-            public Priority getPriority(){
-                return Priority.NORMAL;
+                    @Override
+                    public Priority getPriority(){
+                        return Priority.NORMAL;
+                    }
+                };
+                AppController.getInstance().addToRequestQueue(jsonObjReq, TAG_JSON_OBJ);
+                return null;
             }
-        };
-        AppController.getInstance().addToRequestQueue(jsonObjReq, TAG_JSON_OBJ);
+        }.execute();
+
     }
 
 }

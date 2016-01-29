@@ -19,8 +19,8 @@
             android:layout_height="match_parent"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:gravity="center"
             android:fontFamily="sans-serif-medium"
+            android:gravity="center"
             android:text="Produtos em destaque"
             android:textColor="@color/white"
             android:textSize="@dimen/textsize20"/>

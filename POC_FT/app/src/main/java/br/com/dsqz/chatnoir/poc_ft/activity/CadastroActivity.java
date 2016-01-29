@@ -2,7 +2,6 @@ package br.com.dsqz.chatnoir.poc_ft.activity;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -33,9 +32,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import br.com.dsqz.chatnoir.poc_ft.R;
-import br.com.dsqz.chatnoir.poc_ft.dto.Autenticacao;
 import br.com.dsqz.chatnoir.poc_ft.dto.Cadastro;
-import br.com.dsqz.chatnoir.poc_ft.dto.Usuario;
 import br.com.dsqz.chatnoir.poc_ft.lib.AppController;
 import br.com.jansenfelipe.androidmask.MaskEditTextChangedListener;
 
@@ -123,8 +120,7 @@ public class CadastroActivity extends Activity{
                 dialog.show();
                 new AsyncTask<Cadastro, Void, Void>(){
                     @Override
-                    protected Void doInBackground(Cadastro... params)
-                    {
+                    protected Void doInBackground(Cadastro... params){
                         JSONObject jsonBody = null;
                         try{
                             jsonBody = new JSONObject(gson.toJson(params[0]));
@@ -138,13 +134,18 @@ public class CadastroActivity extends Activity{
 
                                     @Override
                                     public void onResponse(JSONObject response){
-                                        dialog.dismiss();
+                                        if(dialog.isShowing()){
+                                            dialog.dismiss();
+                                        }
+
                                         Log.d(TAG, response.toString());
                                         try{
                                             if(response.getBoolean("sucesso")){
-                                                Toast.makeText(getApplicationContext(), "Usuário cadastrado com sucesso", Toast.LENGTH_LONG).show();
+                                                Toast.makeText(getApplicationContext(), "Usuário cadastrado com sucesso", Toast.LENGTH_LONG)
+                                                     .show();
                                             }else{
-                                                Toast.makeText(getApplicationContext(), response.getString("mensagem"), Toast.LENGTH_SHORT).show();
+                                                Toast.makeText(getApplicationContext(), response.getString("mensagem"), Toast.LENGTH_SHORT)
+                                                     .show();
                                             }
                                         }catch(JSONException e){
                                             Log.e(TAG, e.getMessage(), e);
@@ -154,7 +155,10 @@ public class CadastroActivity extends Activity{
 
                                     @Override
                                     public void onErrorResponse(VolleyError error){
-                                        dialog.dismiss();
+                                        if(dialog.isShowing()){
+                                            dialog.dismiss();
+                                        }
+
                                         VolleyLog.d(TAG, "Error: " + error.getMessage());
                                     }
                                 }){
@@ -175,11 +179,6 @@ public class CadastroActivity extends Activity{
                         return null;
                     }
 
-                    @Override
-                    protected void onPostExecute(Void result)
-                    {
-
-                    }
                 }.execute(cadastro);
             }
         });

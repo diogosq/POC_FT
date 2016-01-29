@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:orientation="vertical">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/bloco1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_alignParentTop="true">
+        android:layout_alignParentTop="true"
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
@@ -35,9 +35,9 @@
 
     <LinearLayout
         android:id="@+id/bloco2"
-        android:layout_below="@+id/bloco1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/bloco1"
         android:layout_marginTop="16dp"
         android:orientation="vertical">
 
@@ -65,9 +65,9 @@
 
     <LinearLayout
         android:id="@+id/bloco3"
-        android:layout_below="@+id/bloco2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/bloco2"
         android:layout_marginTop="16dp"
         android:orientation="vertical">
 
@@ -94,11 +94,11 @@
     </LinearLayout>
 
     <TextView
-        android:layout_below="@+id/bloco3"
-        android:layout_marginTop="16dp"
         android:id="@+id/produto_detalhe_ref"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/bloco3"
+        android:layout_marginTop="16dp"
         android:fontFamily="sans-serif"
         android:text="Carga gilete mach3"
         android:textAlignment="textStart"

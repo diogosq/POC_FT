@@ -2,13 +2,11 @@ package br.com.dsqz.chatnoir.poc_ft.activity;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -89,11 +87,11 @@ public class AutenticacaoActivity extends Activity{
 
                 final ProgressDialog dialog = ProgressDialog.show(AutenticacaoActivity.this, "", "Loading. Please wait...", true);
                 dialog.show();
+
                 new AsyncTask<String, Void, Void>(){
 
                     @Override
-                    protected Void doInBackground(String... params)
-                    {
+                    protected Void doInBackground(String... params){
 
                         Autenticacao autenticacao = new Autenticacao();
                         autenticacao.email = params[0];
@@ -113,19 +111,21 @@ public class AutenticacaoActivity extends Activity{
 
                                     @Override
                                     public void onResponse(JSONObject response){
+                                        if(dialog.isShowing()){
+                                            dialog.dismiss();
+                                        }
+
                                         Log.d(TAG, response.toString());
                                         try{
                                             if(response.getBoolean("sucesso")){
                                                 mUsuario = new Gson().fromJson(response.getJSONObject("dados").toString(), Usuario.class);
                                                 Intent i = new Intent(AutenticacaoActivity.this, ProdutoActivity.class);
-                                                dialog.dismiss();
                                                 startActivity(i);
                                             }else{
-                                                dialog.dismiss();
-                                                Toast.makeText(getApplicationContext(), response.getString("mensagem"), Toast.LENGTH_SHORT).show();
+                                                Toast.makeText(getApplicationContext(), response.getString("mensagem"), Toast.LENGTH_SHORT)
+                                                     .show();
                                             }
                                         }catch(JSONException e){
-                                            dialog.dismiss();
                                             Log.e(TAG, e.getMessage(), e);
                                         }
                                     }
@@ -133,7 +133,10 @@ public class AutenticacaoActivity extends Activity{
 
                                     @Override
                                     public void onErrorResponse(VolleyError error){
-                                        dialog.dismiss();
+                                        if(dialog.isShowing()){
+                                            dialog.dismiss();
+                                        }
+
                                         VolleyLog.d(TAG, "Error: " + error.getMessage());
                                     }
                                 }){
@@ -154,12 +157,7 @@ public class AutenticacaoActivity extends Activity{
                         return null;
                     }
 
-                    @Override
-                    protected void onPostExecute(Void result)
-                    {
-
-                    }
-                }.execute(mEditTextUsuario.getText().toString().trim(),mEditTextSenha.getText().toString());
+                }.execute(mEditTextUsuario.getText().toString().trim(), mEditTextSenha.getText().toString());
 
             }
         });

@@ -11,19 +11,19 @@
         android:layout_height="161dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="31.3dp"
+        android:layout_marginBottom="63.9dp"
         android:layout_marginEnd="99.5dp"
         android:layout_marginStart="99.5dp"
-        android:layout_marginBottom="63.9dp"
+        android:layout_marginTop="31.3dp"
         android:background="@color/blue"
         android:src="@drawable/splash_logo_teste"/>
 
 
     <RelativeLayout
-        android:layout_marginTop="203.9dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true">
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="203.9dp">
 
         <TextView
             android:id="@+id/produto_descriicao"

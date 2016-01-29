@@ -7,5 +7,6 @@ import com.android.volley.toolbox.ImageLoader;
  */
 public interface VolleyImgCallback{
     void onSuccess(ImageLoader.ImageContainer img, Object... info);
+
 }
 

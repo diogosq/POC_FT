@@ -2,11 +2,11 @@ package br.com.dsqz.chatnoir.poc_ft.activity;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.app.ProgressDialog;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -71,50 +71,75 @@ public class EsqueciMinhaSenhaActivity extends Activity{
         mButtonEnviar.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                String url = getString(R.string.esqueci_senha_url).concat(mEditTextEmail.getText().toString().trim());
 
-                final JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET, url, new Response.Listener<JSONObject>(){
-
-                    @Override
-                    public void onResponse(JSONObject response){
-                        Log.d(TAG, response.toString());
-                        try{
-                            if(response.getBoolean("sucesso")){
-                                mExiste = new Gson().fromJson(response.getJSONObject("dados").toString(), Existe.class);
-                                if(mExiste.existe){
-                                    mEditTextEmail.setVisibility(View.INVISIBLE);
-                                    mCustomDialog.show();
-                                }else{
-                                    Toast.makeText(getApplicationContext(), "Usuário não existe", Toast.LENGTH_SHORT).show();
-                                }
-                            }else{
-                                Toast.makeText(getApplicationContext(), response.getString("mensagem"), Toast.LENGTH_SHORT).show();
-                            }
-                        }catch(JSONException e){
-                            Log.e(TAG, e.getMessage(), e);
-                        }
-                    }
-                }, new Response.ErrorListener(){
+                final ProgressDialog dialog = ProgressDialog.show(EsqueciMinhaSenhaActivity.this, "", "Loading. Please wait...", true);
+                dialog.show();
+                new AsyncTask<String, Void, Void>(){
 
                     @Override
-                    public void onErrorResponse(VolleyError error){
-                        VolleyLog.d(TAG, "Error: " + error.getMessage());
-                    }
-                }){
-                    @Override
-                    public Map<String, String> getHeaders() throws AuthFailureError{
-                        HashMap<String, String> headers = new HashMap<>();
-                        headers.put(getString(R.string.tokenkey), getString(R.string.token));
-                        headers.put(getString(R.string.Acceptkey), getString(R.string.Accept));
-                        return headers;
-                    }
+                    protected Void doInBackground(String... params){
 
-                    @Override
-                    public Priority getPriority(){
-                        return Priority.NORMAL;
+
+                        String url = getString(R.string.esqueci_senha_url).concat(params[0].trim());
+
+                        final JsonObjectRequest jsonObjReq =
+                                new JsonObjectRequest(Request.Method.GET, url, new Response.Listener<JSONObject>(){
+
+                                    
+                                    @Override
+                                    public void onResponse(JSONObject response){
+                                        if(dialog.isShowing()){
+                                            dialog.dismiss();
+                                        }
+
+                                        Log.d(TAG, response.toString());
+                                        try{
+                                            if(response.getBoolean("sucesso")){
+
+                                                mExiste = new Gson().fromJson(response.getJSONObject("dados").toString(), Existe.class);
+                                                if(mExiste.existe){
+                                                    mEditTextEmail.setVisibility(View.INVISIBLE);
+                                                    mCustomDialog.show();
+                                                }else{
+                                                    Toast.makeText(getApplicationContext(), "Usuário não existe", Toast.LENGTH_SHORT)
+                                                         .show();
+                                                }
+                                            }else{
+                                                Toast.makeText(getApplicationContext(), response.getString("mensagem"), Toast.LENGTH_SHORT)
+                                                     .show();
+                                            }
+                                        }catch(JSONException e){
+                                            Log.e(TAG, e.getMessage(), e);
+                                        }
+                                    }
+                                }, new Response.ErrorListener(){
+
+                                    @Override
+                                    public void onErrorResponse(VolleyError error){
+                                        if(dialog.isShowing()){
+                                            dialog.dismiss();
+                                        }
+
+                                        VolleyLog.d(TAG, "Error: " + error.getMessage());
+                                    }
+                                }){
+                                    @Override
+                                    public Map<String, String> getHeaders() throws AuthFailureError{
+                                        HashMap<String, String> headers = new HashMap<>();
+                                        headers.put(getString(R.string.tokenkey), getString(R.string.token));
+                                        headers.put(getString(R.string.Acceptkey), getString(R.string.Accept));
+                                        return headers;
+                                    }
+
+                                    @Override
+                                    public Priority getPriority(){
+                                        return Priority.NORMAL;
+                                    }
+                                };
+                        AppController.getInstance().addToRequestQueue(jsonObjReq, TAG_JSON_OBJ);
+                        return null;
                     }
-                };
-                AppController.getInstance().addToRequestQueue(jsonObjReq, TAG_JSON_OBJ);
+                }.execute(mEditTextEmail.getText().toString());
             }
         });
     }

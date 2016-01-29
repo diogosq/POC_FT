@@ -24,7 +24,6 @@
 
 
     <EditText
-        android:text="teste@fourtime.com"
         android:id="@+id/autenticacao_editTextUsuario"
         android:layout_width="@dimen/autenticacao_etittext_width"
         android:layout_height="@dimen/autenticacao_etittext_height"
@@ -37,6 +36,7 @@
         android:maxLength="50"
         android:shadowColor="@color/white"
         android:singleLine="true"
+        android:text="teste@fourtime.com"
         android:textColor="@color/white"
         android:textColorHighlight="@color/white"
         android:textColorHint="@color/white"
@@ -44,7 +44,6 @@
         android:textSize="20sp"/>
 
     <EditText
-        android:text="senha"
         android:id="@+id/autenticacao_editTextSenha"
         android:layout_width="@dimen/autenticacao_etittext_width"
         android:layout_height="@dimen/autenticacao_etittext_height"
@@ -54,10 +53,11 @@
         android:layout_marginTop="@dimen/autenticacao_edit2_margin_top"
         android:fontFamily="sans-serif"
         android:hint="@string/autenticacao_edit2_hint"
-        android:maxLength="50"
         android:inputType="textPassword"
+        android:maxLength="50"
         android:shadowColor="@color/white"
         android:singleLine="true"
+        android:text="senha"
         android:textColor="@color/white"
         android:textColorHighlight="@color/white"
         android:textColorHint="@color/white"
@@ -68,14 +68,14 @@
         android:id="@+id/buttonEntrar"
         android:layout_width="@dimen/default_button_width"
         android:layout_height="@dimen/default_button_height"
-        android:maxWidth="@dimen/default_button_width"
-        android:maxHeight="@dimen/default_button_height"
         android:layout_marginBottom="@dimen/autenticacao_button_margin_bottom"
         android:layout_marginEnd="@dimen/autenticacao_button_margin_end"
         android:layout_marginStart="@dimen/autenticacao_button_margin_start"
         android:layout_marginTop="@dimen/autenticacao_button_margin_top"
         android:background="@color/blue"
         android:fontFamily="sans-serif"
+        android:maxHeight="@dimen/default_button_height"
+        android:maxWidth="@dimen/default_button_width"
         android:text="@string/autenticacao_button_text"
         android:textColor="@color/white"
         android:textSize="@dimen/textsize13_8"/>
