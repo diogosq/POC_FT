@@ -43,6 +43,8 @@
         </activity>
         <activity android:name=".activity.ProdutoActivity">
         </activity>
+        <activity android:name=".activity.ProdutoDetalheActivity">
+        </activity>
     </application>
 
 </manifest>

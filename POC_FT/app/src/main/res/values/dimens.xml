@@ -1,7 +1,9 @@
 <resources>
-    <dimen name="textsize16">16sp</dimen>
-    <dimen name="textsize20">20sp</dimen>
     <dimen name="textsize13_8" format="float" type="dimen">13.8sp</dimen>
+    <dimen name="textsize16">16sp</dimen>
+    <dimen name="textsize18">18sp</dimen>
+    <dimen name="textsize20">20sp</dimen>
+    <dimen name="textsize22">22sp</dimen>
     <dimen name="default_button_height">43dp</dimen>
     <dimen name="default_button_width" format="float" type="dimen">138.3dp</dimen>
     <!-- -->
@@ -55,9 +57,4 @@
     <dimen name="esqueciSenha_button_margin_bottom" format="float" type="dimen">153.7dp</dimen>
     <dimen name="esqueciSenha_button_margin_start" format="float" type="dimen">110.7dp</dimen>
     <dimen name="esqueciSenha_button_margin_top" format="float" type="dimen">371.3dp</dimen>
-    <!-- Default screen margins, per the Android Design guidelines. -->
-    <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin">16dp</dimen>
-    <!-- -->
-
 </resources>

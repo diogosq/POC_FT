@@ -23,12 +23,12 @@ public class ProdutoAdapter extends RecyclerView.Adapter{
 
     private Context            mContext;
     private ArrayList<Produto> mItens;
-    private NumberFormat       format;
+    private NumberFormat       mFormat;
 
     public ProdutoAdapter(Context context, ArrayList<Produto> mItens){
         this.mItens = mItens;
         this.mContext = context;
-        format = NumberFormat.getCurrencyInstance();
+        mFormat = NumberFormat.getCurrencyInstance();
     }
 
     @Override
@@ -45,9 +45,10 @@ public class ProdutoAdapter extends RecyclerView.Adapter{
         ProdutoViewHolder produtoViewHolder = (ProdutoViewHolder) holder;
 
         produtoViewHolder.getmDescricaoView().setText(produto.descricao);
-        produtoViewHolder.getmPrecoView().setText(format.format(produto.preco));
+        produtoViewHolder.getmPrecoView().setText(mFormat.format(produto.preco));
         produtoViewHolder.getmFotoView()
                          .setImageBitmap(ImageSaveLoad.loadImage(produto.fotos.get(0).localPath, produto.fotos.get(0).id + ".png"));
+        produtoViewHolder.setProdutoData(produto);
     }
 
     @Override

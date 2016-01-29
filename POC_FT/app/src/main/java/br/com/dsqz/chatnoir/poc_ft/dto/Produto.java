@@ -32,7 +32,7 @@ public class Produto{
     @SerializedName ("disponivel")
     @Expose
     public Boolean disponivel;
-    @SerializedName ("descri cao")
+    @SerializedName ("descricao")
     @Expose
     public String  descricao;
     @SerializedName ("votos")
@@ -65,7 +65,7 @@ public class Produto{
     @SerializedName ("largura")
     @Expose
     public Integer largura;
-    @SerializedName ("estoqu e")
+    @SerializedName ("estoque")
     @Expose
     public Integer estoque;
     @SerializedName ("nome")

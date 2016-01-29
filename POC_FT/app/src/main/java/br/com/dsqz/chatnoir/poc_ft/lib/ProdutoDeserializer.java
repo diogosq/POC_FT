@@ -58,6 +58,7 @@ public class ProdutoDeserializer implements JsonDeserializer<Produto>{
             temp.criacao = jsonFoto.get("criacao").getAsString();
             temp.padrao = jsonFoto.get("padrao").getAsBoolean();
             temp.idProduto = jsonFoto.get("idProduto").getAsString();
+            temp.localPath = (jsonFoto.get("localPath") != null)?jsonFoto.get("localPath").getAsString():null;
 
             produto.fotos.add(temp);
         }

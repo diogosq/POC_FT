@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/bloco1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:text="Fabricante:"
+            android:textAlignment="textStart"
+            android:textColor="@color/textCinza2"
+            android:textSize="@dimen/textsize16"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/produto_detalhe_fabricante"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:text="Carga gilete mach3"
+            android:textAlignment="textStart"
+            android:textColor="@color/textCinza2"
+            android:textSize="@dimen/textsize16"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bloco2"
+        android:layout_below="@+id/bloco1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:text="Categoria:"
+            android:textAlignment="textStart"
+            android:textColor="@color/textCinza2"
+            android:textSize="@dimen/textsize16"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/produto_detalhe_categoria"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:text="Carga gilete mach3"
+            android:textAlignment="textStart"
+            android:textColor="@color/textCinza2"
+            android:textSize="@dimen/textsize16"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bloco3"
+        android:layout_below="@+id/bloco2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:text="Código:"
+            android:textAlignment="textStart"
+            android:textColor="@color/textCinza2"
+            android:textSize="@dimen/textsize16"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/produto_detalhe_codigo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:text="Carga gilete mach3"
+            android:textAlignment="textStart"
+            android:textColor="@color/textCinza2"
+            android:textSize="@dimen/textsize16"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_below="@+id/bloco3"
+        android:layout_marginTop="16dp"
+        android:id="@+id/produto_detalhe_ref"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:text="Carga gilete mach3"
+        android:textAlignment="textStart"
+        android:textColor="@color/textCinza2"
+        android:textSize="@dimen/textsize16"/>
+
+</RelativeLayout>

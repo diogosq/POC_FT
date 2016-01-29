@@ -15,10 +15,11 @@
         android:background="@color/colorPrimaryDark">
 
         <TextView
-            android:layout_width="240dp"
-            android:layout_height="24dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
+            android:gravity="center"
             android:fontFamily="sans-serif-medium"
             android:text="Produtos em destaque"
             android:textColor="@color/white"

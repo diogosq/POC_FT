@@ -1,13 +1,18 @@
 package br.com.dsqz.chatnoir.poc_ft.list;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.google.gson.Gson;
 
 import br.com.dsqz.chatnoir.poc_ft.R;
+import br.com.dsqz.chatnoir.poc_ft.activity.ProdutoDetalheActivity;
+import br.com.dsqz.chatnoir.poc_ft.dto.Produto;
 
 public class ProdutoViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
@@ -15,6 +20,7 @@ public class ProdutoViewHolder extends RecyclerView.ViewHolder implements View.O
     private ImageView mFotoView;
     private TextView  mDescricaoView;
     private TextView  mPrecoView;
+    private Produto   mProdutoData;
 
     public ProdutoViewHolder(Context context, View itemView){
         super(itemView);
@@ -59,6 +65,15 @@ public class ProdutoViewHolder extends RecyclerView.ViewHolder implements View.O
 
     @Override
     public void onClick(View v){
-        Toast.makeText(mContext, "clock", Toast.LENGTH_SHORT).show();
+
+        Intent i = new Intent(mContext, ProdutoDetalheActivity.class);
+        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        i.putExtra("PRODUTO",new Gson().toJson(mProdutoData));
+
+        mContext.startActivity(i);
+    }
+
+    public void setProdutoData(Produto produtoData){
+        this.mProdutoData = produtoData;
     }
 }

@@ -81,13 +81,13 @@ public class ProdutoActivity extends Activity{
                             @Override
                             public void onSuccess(ImageLoader.ImageContainer img, Object... info){
 
-                                for(Produto p : mProdutos){
-                                    if(p.id.equals(info[0])){
+                                for(int pos =0;pos<mProdutos.size();pos++){
+                                    if(mProdutos.get(pos).id.equals(info[0])){
 
-                                        p.fotos.get(0).localPath = ImageSaveLoad
+                                        mProdutos.get(pos).fotos.get(0).localPath = ImageSaveLoad
                                                 .saveToInternalSorage(img.getBitmap(), getApplicationContext(),
                                                                       getResources().getString(R.string.image_folder), Context.MODE_PRIVATE,
-                                                                      p.fotos.get(0).id + ".png");
+                                                                      mProdutos.get(pos).fotos.get(0).id + ".png");
                                         load--;
                                         break;
                                     }

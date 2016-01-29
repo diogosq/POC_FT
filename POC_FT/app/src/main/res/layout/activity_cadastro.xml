@@ -15,11 +15,11 @@
         android:background="@color/colorPrimaryDark">
 
         <TextView
-            android:id="@+id/editText"
-            android:layout_width="82dp"
-            android:layout_height="24dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
+            android:gravity="center"
             android:fontFamily="sans-serif-medium"
             android:text="Cadastro"
             android:textColor="@color/white"
