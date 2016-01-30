@@ -15,6 +15,7 @@ import java.io.IOException;
 /**
  * Created by diogosq on 1/28/16.
  */
+@SuppressWarnings ("SameParameterValue")
 public class ImageSaveLoad{
 
     private static final String TAG = "ImageSaveLoad";
@@ -27,6 +28,7 @@ public class ImageSaveLoad{
      * @param imageName   name.type
      * @return path of image
      */
+    @SuppressWarnings ("SameParameterValue")
     public static String saveToInternalSorage(Bitmap bitmapImage, Context context, String imageDir, int mode, String imageName){
 
         ContextWrapper cw = new ContextWrapper(context);
@@ -41,7 +43,7 @@ public class ImageSaveLoad{
             e.printStackTrace();
         }finally{
             try{
-                fos.close();
+                if(fos != null) fos.close();
             }catch(IOException e){
                 Log.e(TAG, e.getMessage(), e);
             }
@@ -57,7 +59,7 @@ public class ImageSaveLoad{
     public static Bitmap loadImage(String imagePath, String imageName){
         Bitmap image = null;
         try{
-            image = BitmapFactory.decodeStream(new FileInputStream( new File(imagePath, imageName)));
+            image = BitmapFactory.decodeStream(new FileInputStream(new File(imagePath, imageName)));
         }catch(FileNotFoundException e){
             Log.e(TAG, e.getMessage(), e);
         }

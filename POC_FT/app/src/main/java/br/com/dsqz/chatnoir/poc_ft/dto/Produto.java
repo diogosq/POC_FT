@@ -73,7 +73,7 @@ public class Produto{
     public String  nome;
     @SerializedName ("fotos")
     @Expose
-    public List<Foto> fotos = new ArrayList<Foto>();
+    public List<Foto> fotos = new ArrayList<>();
     @SerializedName ("destaque")
     @Expose
     public Boolean destaque;

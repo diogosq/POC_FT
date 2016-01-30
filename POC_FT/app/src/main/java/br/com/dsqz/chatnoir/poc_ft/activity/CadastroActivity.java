@@ -44,13 +44,6 @@ public class CadastroActivity extends Activity{
     private final String TAG          = getClass().getSimpleName();
     private final Gson   gson         = new Gson();
 
-    private ImageView mIcon1;
-    private ImageView mIcon2;
-    private ImageView mIcon3;
-    private ImageView mIcon4;
-    private ImageView mIcon5;
-    private ImageView mIcon6;
-    private ImageView mIcon7;
     private ImageView mIcon8;
     private EditText  mEditTextNome;
     private EditText  mEditTextEmail;
@@ -61,7 +54,6 @@ public class CadastroActivity extends Activity{
     private EditText  mEditTextNascimento;
     private EditText  mEditTextNonActive5;
     private EditText  mEditTextNonActive6;
-    private TextView  mCheckBoxText;
     private CheckBox  mCheckbox;
     private Spinner   mSpinnerSexo;
     private Button    mButtonConfirmar;
@@ -71,13 +63,13 @@ public class CadastroActivity extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro);
 
-        mIcon1 = (ImageView) findViewById(R.id.cadastro_icon1);
-        mIcon2 = (ImageView) findViewById(R.id.cadastro_icon2);
-        mIcon3 = (ImageView) findViewById(R.id.cadastro_icon3);
-        mIcon4 = (ImageView) findViewById(R.id.cadastro_icon4);
-        mIcon5 = (ImageView) findViewById(R.id.cadastro_icon5);
-        mIcon6 = (ImageView) findViewById(R.id.cadastro_icon6);
-        mIcon7 = (ImageView) findViewById(R.id.cadastro_icon7);
+        ImageView icon1 = (ImageView) findViewById(R.id.cadastro_icon1);
+        ImageView icon2 = (ImageView) findViewById(R.id.cadastro_icon2);
+        ImageView icon3 = (ImageView) findViewById(R.id.cadastro_icon3);
+        ImageView icon4 = (ImageView) findViewById(R.id.cadastro_icon4);
+        ImageView icon5 = (ImageView) findViewById(R.id.cadastro_icon5);
+        ImageView icon6 = (ImageView) findViewById(R.id.cadastro_icon6);
+        ImageView icon7 = (ImageView) findViewById(R.id.cadastro_icon7);
         mIcon8 = (ImageView) findViewById(R.id.cadastro_icon8);
         mEditTextNome = (EditText) findViewById(R.id.editText_nome);
         mEditTextEmail = (EditText) findViewById(R.id.editText_email);
@@ -90,16 +82,16 @@ public class CadastroActivity extends Activity{
         mEditTextNonActive6 = (EditText) findViewById(R.id.non_active_edit_text6);
         mSpinnerSexo = (Spinner) findViewById(R.id.spinner_sexo);
         mButtonConfirmar = (Button) findViewById(R.id.button_ConfirmarCadastro);
-        mCheckBoxText = (TextView) findViewById(R.id.cadastro_checkboxText);
+        TextView mCheckBoxText = (TextView) findViewById(R.id.cadastro_checkboxText);
         mCheckbox = (CheckBox) findViewById(R.id.checkbox_termosUso);
 
-        nomeWatcher(mEditTextNome, mIcon1, R.drawable.ic_nome, R.drawable.ic_nome_check);
-        nomeWatcher(mEditTextEmail, mIcon2, R.drawable.ic_email, R.drawable.ic_email_check);
-        nomeWatcher(mEditTextSenha, mIcon3, R.drawable.ic_senha, R.drawable.ic_senha_check);
-        nomeWatcher(mEditTextCPF, mIcon4, R.drawable.ic_cpf, R.drawable.ic_cpf_check);
-        nomeWatcher(mEditTextTelefone, mIcon5, R.drawable.ic_telefone, R.drawable.ic_telefone_check);
-        nomeWatcher(mEditTextCelular, mIcon6, R.drawable.ic_celular, R.drawable.ic_celular_check);
-        nomeWatcher(mEditTextNascimento, mIcon7, R.drawable.ic_nascimento, R.drawable.ic_nascimento_check);
+        nomeWatcher(mEditTextNome, icon1, R.drawable.ic_nome, R.drawable.ic_nome_check);
+        nomeWatcher(mEditTextEmail, icon2, R.drawable.ic_email, R.drawable.ic_email_check);
+        nomeWatcher(mEditTextSenha, icon3, R.drawable.ic_senha, R.drawable.ic_senha_check);
+        nomeWatcher(mEditTextCPF, icon4, R.drawable.ic_cpf, R.drawable.ic_cpf_check);
+        nomeWatcher(mEditTextTelefone, icon5, R.drawable.ic_telefone, R.drawable.ic_telefone_check);
+        nomeWatcher(mEditTextCelular, icon6, R.drawable.ic_celular, R.drawable.ic_celular_check);
+        nomeWatcher(mEditTextNascimento, icon7, R.drawable.ic_nascimento, R.drawable.ic_nascimento_check);
 
         setMasksToFields();
         initializeSpinner();
@@ -196,8 +188,8 @@ public class CadastroActivity extends Activity{
         });
     }
 
-    private void nomeWatcher(@NonNull EditText view, @NonNull final ImageView icon, @NonNull final int iconDrawable1,
-                             @NonNull final int iconDrawableCheck){
+    private void nomeWatcher(@NonNull EditText view, @NonNull final ImageView icon, @NonNull final Integer iconDrawable1,
+                             @NonNull final Integer iconDrawableCheck){
         view.addTextChangedListener(new TextWatcher(){
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after){

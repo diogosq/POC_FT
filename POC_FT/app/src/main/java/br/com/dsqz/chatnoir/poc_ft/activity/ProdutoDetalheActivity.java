@@ -17,48 +17,38 @@ import br.com.dsqz.chatnoir.poc_ft.lib.ProdutoDeserializer;
 
 public class ProdutoDetalheActivity extends Activity{
 
-    private ImageView    mImageView;
-    private TextView     mNome;
-    private TextView     mPreco;
-    private TextView     mFabricante;
-    private TextView     mCategoria;
-    private TextView     mCodigo;
-    private TextView     mDescricao;
-    private Produto      mProduto;
-    private GsonBuilder  mGsonBuilder;
-    private Gson         mGson;
-    private NumberFormat mFormat;
+    private Produto mProduto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_produto_detalhe);
 
-        mImageView = (ImageView) findViewById(R.id.produto_detalhe_foto);
-        mNome = (TextView) findViewById(R.id.produto_detalhe_nome);
-        mPreco = (TextView) findViewById(R.id.produto_detalhe_preco);
-        mFabricante = (TextView) findViewById(R.id.produto_detalhe_fabricante);
-        mCategoria = (TextView) findViewById(R.id.produto_detalhe_categoria);
-        mCodigo = (TextView) findViewById(R.id.produto_detalhe_codigo);
-        mDescricao = (TextView) findViewById(R.id.produto_detalhe_ref);
+        ImageView imageView = (ImageView) findViewById(R.id.produto_detalhe_foto);
+        TextView nome = (TextView) findViewById(R.id.produto_detalhe_nome);
+        TextView preco = (TextView) findViewById(R.id.produto_detalhe_preco);
+        TextView fabricante = (TextView) findViewById(R.id.produto_detalhe_fabricante);
+        TextView categoria = (TextView) findViewById(R.id.produto_detalhe_categoria);
+        TextView codigo = (TextView) findViewById(R.id.produto_detalhe_codigo);
+        TextView descricao = (TextView) findViewById(R.id.produto_detalhe_ref);
 
         deserializeProduto();
 
-        mFormat = NumberFormat.getCurrencyInstance();
+        NumberFormat mFormat = NumberFormat.getCurrencyInstance();
 
-        mImageView.setImageBitmap(ImageSaveLoad.loadImage(mProduto.fotos.get(0).localPath, mProduto.fotos.get(0).id + ".png"));
-        mNome.setText(mProduto.nome);
-        mPreco.setText(mFormat.format(mProduto.preco));
-        mFabricante.setText(mProduto.idEmpresa);
-        mCategoria.setText(mProduto.idCategoria);
-        mCodigo.setText(mProduto.codigoBarra);
-        mDescricao.setText(mProduto.descricao);
+        imageView.setImageBitmap(ImageSaveLoad.loadImage(mProduto.fotos.get(0).localPath, mProduto.fotos.get(0).id + ".png"));
+        nome.setText(mProduto.nome);
+        preco.setText(mFormat.format(mProduto.preco));
+        fabricante.setText(mProduto.idEmpresa);
+        categoria.setText(mProduto.idCategoria);
+        codigo.setText(mProduto.codigoBarra);
+        descricao.setText(mProduto.descricao);
     }
 
     private void deserializeProduto(){
-        mGsonBuilder = new GsonBuilder();
+        GsonBuilder mGsonBuilder = new GsonBuilder();
         mGsonBuilder.registerTypeAdapter(Produto.class, new ProdutoDeserializer());
-        mGson = mGsonBuilder.create();
+        Gson mGson = mGsonBuilder.create();
         mProduto = mGson.fromJson(this.getIntent().getStringExtra("PRODUTO"), Produto.class);
     }
 }

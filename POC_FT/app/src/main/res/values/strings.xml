@@ -11,8 +11,6 @@
     <string name="autenticacao_edit1_hint">Usuário</string>
     <string name="autenticacao_edit2_hint">Senha</string>
     <string name="autenticacao_button_text">Entrar</string>
-    <string name="urlEntrar">http://api.lojas.club/api/cliente/autenticar</string>
-    <string name="CHARSET_NAME">UTF-8</string>
     <string name="token">7PJGH8DUBUD2Q1A69FOLDN</string>
     <string name="tokenkey">token</string>
     <string name="Acceptkey">Accept</string>
@@ -23,7 +21,7 @@
     <string name="image_folder">minhasFotos</string>
     <!-- -->
     <string-array name="sexo_array">
-        <item></item>
+        <item/>
         <item>Masculino</item>
         <item>Feminino</item>
     </string-array>

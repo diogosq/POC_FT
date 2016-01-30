@@ -17,6 +17,7 @@ import br.com.dsqz.chatnoir.poc_ft.dto.Produto;
 /**
  * Created by diogosq on 1/28/16.
  */
+@SuppressWarnings ("UnnecessaryBoxing")
 public class ProdutoDeserializer implements JsonDeserializer<Produto>{
 
     @Override
@@ -48,8 +49,8 @@ public class ProdutoDeserializer implements JsonDeserializer<Produto>{
         produto.nome = jsonObject.get("nome").getAsString();
 
         final JsonArray jsonFotoArray = jsonObject.get("fotos").getAsJsonArray();
-        produto.fotos = new ArrayList<Foto>();
-        Foto temp = null;
+        produto.fotos = new ArrayList<>();
+        Foto temp;
         for(int i = 0; i < jsonFotoArray.size(); i++){
             final JsonObject jsonFoto = (JsonObject) jsonFotoArray.get(i);
 
@@ -58,7 +59,7 @@ public class ProdutoDeserializer implements JsonDeserializer<Produto>{
             temp.criacao = jsonFoto.get("criacao").getAsString();
             temp.padrao = jsonFoto.get("padrao").getAsBoolean();
             temp.idProduto = jsonFoto.get("idProduto").getAsString();
-            temp.localPath = (jsonFoto.get("localPath") != null)?jsonFoto.get("localPath").getAsString():null;
+            temp.localPath = (jsonFoto.get("localPath") != null)? jsonFoto.get("localPath").getAsString() : null;
 
             produto.fotos.add(temp);
         }

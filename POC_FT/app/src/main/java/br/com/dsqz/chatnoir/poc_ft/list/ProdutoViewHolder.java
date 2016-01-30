@@ -2,7 +2,6 @@ package br.com.dsqz.chatnoir.poc_ft.list;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
@@ -68,7 +67,7 @@ public class ProdutoViewHolder extends RecyclerView.ViewHolder implements View.O
 
         Intent i = new Intent(mContext, ProdutoDetalheActivity.class);
         i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        i.putExtra("PRODUTO",new Gson().toJson(mProdutoData));
+        i.putExtra("PRODUTO", new Gson().toJson(mProdutoData));
 
         mContext.startActivity(i);
     }

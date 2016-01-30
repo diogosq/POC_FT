@@ -46,7 +46,6 @@ public class ProdutoActivity extends Activity{
     private RecyclerView       mRecyclerViewProdutos;
     private ArrayList<Produto> mProdutos;
     private ProdutoAdapter     mProdutoAdapter;
-    private GsonBuilder        mGsonBuilder;
     private Gson               mGson;
     private int                load;
 
@@ -55,9 +54,9 @@ public class ProdutoActivity extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_produto);
 
-        mGsonBuilder = new GsonBuilder();
-        mGsonBuilder.registerTypeAdapter(Produto.class, new ProdutoDeserializer());
-        mGson = mGsonBuilder.create();
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        gsonBuilder.registerTypeAdapter(Produto.class, new ProdutoDeserializer());
+        mGson = gsonBuilder.create();
 
         mRecyclerViewProdutos = (RecyclerView) findViewById(R.id.recycleView_produtos);
 
@@ -88,7 +87,7 @@ public class ProdutoActivity extends Activity{
                     }
 
                     @Override
-                    public void onSuccess(final JSONObject response, Object... info){
+                    public void onSuccess(final JSONObject response){
                         try{
                             mProdutos = mGson.fromJson(response.getJSONArray("lista").toString(),
                                                        new TypeToken<ArrayList<Produto>>(){}.getType());

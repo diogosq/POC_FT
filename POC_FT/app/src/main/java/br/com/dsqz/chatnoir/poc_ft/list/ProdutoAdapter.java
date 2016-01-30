@@ -21,9 +21,9 @@ public class ProdutoAdapter extends RecyclerView.Adapter{
 
     private final String TAG = getClass().getSimpleName();
 
-    private Context            mContext;
-    private ArrayList<Produto> mItens;
-    private NumberFormat       mFormat;
+    private final Context            mContext;
+    private final ArrayList<Produto> mItens;
+    private final NumberFormat       mFormat;
 
     public ProdutoAdapter(Context context, ArrayList<Produto> mItens){
         this.mItens = mItens;
@@ -34,8 +34,7 @@ public class ProdutoAdapter extends RecyclerView.Adapter{
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
         View view = LayoutInflater.from(mContext).inflate(R.layout.item_produto, parent, false);
-        ProdutoViewHolder viewHolder = new ProdutoViewHolder(mContext, view);
-        return viewHolder;
+        return new ProdutoViewHolder(mContext, view);
     }
 
     @Override
