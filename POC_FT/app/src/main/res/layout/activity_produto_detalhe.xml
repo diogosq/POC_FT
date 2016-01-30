@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="br.com.dsqz.chatnoir.poc_ft.activity.ProdutoDetalheActivity">
+
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:background="@color/colorPrimaryDark">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:text="Produto"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textsize20"/>
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/relativeLayout">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:paddingTop="30dp">
+
+
+            <ImageView
+                android:id="@+id/produto_detalhe_foto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginEnd="28.1dp"
+                android:layout_marginStart="28.1dp"
+                android:background="@color/blue"
+                android:maxHeight="241.7dp"
+                android:maxWidth="241.7dp"
+                android:src="@drawable/splash_logo_teste"/>
+
+            <TextView
+                android:id="@+id/produto_detalhe_nome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/produto_detalhe_foto"
+                android:layout_marginTop="29.5dp"
+                android:fontFamily="sans-serif"
+                android:text="Carga gilete mach3"
+                android:textAlignment="textStart"
+                android:textColor="@color/textCinza2"
+                android:textSize="@dimen/textsize18"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/produto_detalhe_preco"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/produto_detalhe_nome"
+                android:layout_marginTop="11.5dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="R$99,99"
+                android:textColor="@color/blue"
+                android:textSize="@dimen/textsize22"/>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/produto_detalhe_preco"
+                android:layout_marginTop="21.5dp">
+
+                <include layout="@layout/detalhes_produto"/>
+            </FrameLayout>
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

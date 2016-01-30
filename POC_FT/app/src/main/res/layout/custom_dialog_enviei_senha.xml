@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="280dp"
+                android:layout_height="284dp"
+                android:paddingBottom="36dp"
+                android:paddingEnd="24dp"
+                android:paddingStart="24dp"
+                android:paddingTop="24dp">
+
+    <TextView
+        android:id="@+id/dialog_senhaEnviada"
+        android:layout_width="match_parent"
+        android:layout_height="24dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Sua senha foi enviada"
+        android:textColor="@color/colorPrimaryClean"
+        android:textSize="@dimen/textsize20"/>
+
+    <TextView
+        android:id="@+id/dialog_senhaEnviada_texto"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_below="@+id/dialog_senhaEnviada"
+        android:layout_marginTop="17dp"
+        android:fontFamily="sans-serif"
+        android:text="Mandamos uma nova senha para seu e-mail cadastrado nem nosso banco de dados. Se tiver alguma dúvida, entre em contato conosco "
+        android:textColor="@color/text"
+        android:textSize="@dimen/textsize16"/>
+
+    <Button
+        android:id="@+id/esqueciSenha_buttonOk"
+        android:layout_width="125.3dp"
+        android:layout_height="@dimen/default_button_height"
+        android:layout_below="@+id/dialog_senhaEnviada_texto"
+        android:layout_marginEnd="77.6dp"
+        android:layout_marginStart="77.1dp"
+        android:layout_marginTop="23.3dp"
+        android:background="@color/blue"
+        android:fontFamily="sans-serif-medium"
+        android:text="Ok"
+        android:textColor="@color/white"
+        android:textSize="@dimen/textsize13_8"/>
+
+</RelativeLayout>

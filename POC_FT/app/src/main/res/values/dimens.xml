@@ -1,0 +1,33 @@
+<resources>
+    <dimen name="textsize13_8" format="float" type="dimen">13.8sp</dimen>
+    <dimen name="textsize16">16sp</dimen>
+    <dimen name="textsize18">18sp</dimen>
+    <dimen name="textsize20">20sp</dimen>
+    <dimen name="textsize22">22sp</dimen>
+    <dimen name="default_button_height">43dp</dimen>
+    <dimen name="default_button_width" format="float" type="dimen">138.3dp</dimen>
+    <!-- -->
+    <dimen name="splashscreen_logo1_width" format="float" type="dimen">243.2dp</dimen>
+    <dimen name="splashscreen_height" format="float" type="dimen">161.1dp</dimen>
+    <dimen name="splashscreen_logo2_width" format="float" type="dimen">119.7dp</dimen>
+    <dimen name="splashscreen_logo2_height" format="float" type="dimen">41.7dp</dimen>
+    <!-- -->
+    <dimen name="autenticacao_logo1_margin_top" format="float" type="dimen">87.6dp</dimen>
+    <dimen name="autenticacao_etittext_height">48dp</dimen>
+    <dimen name="autenticacao_logo1_height" format="float" type="dimen">97.7dp</dimen>
+    <dimen name="autenticacao_logo1_width" format="float" type="dimen">147.5dp</dimen>
+    <dimen name="autenticacao_edit2_margin_end">15dp</dimen>
+    <dimen name="autenticacao_edit2_margin_start">15dp</dimen>
+    <dimen name="autenticacao_button_margin_end">111dp</dimen>
+    <dimen name="autenticacao_button_margin_start" format="float" type="dimen">110.7dp</dimen>
+    <!-- -->
+    <dimen name="esqueciSenha_logo1_margin_end" format="float" type="dimen">106.2dp</dimen>
+    <dimen name="esqueciSenha_logo1_margin_start" format="float" type="dimen">105.8dp</dimen>
+    <dimen name="esqueciSenha_logo1_margin_top" format="float" type="dimen">176.6dp</dimen>
+    <dimen name="esqueciSenha_logo1_height" format="float" type="dimen">98dp</dimen>
+    <dimen name="esqueciSenha_logo1_width" format="float" type="dimen">148dp</dimen>
+    <dimen name="esqueciSenha_etittext_width">329dp</dimen>
+    <dimen name="esqueciSenha_etittext_height">48dp</dimen>
+    <dimen name="esqueciSenha_edit1_margin_end">15dp</dimen>
+    <dimen name="esqueciSenha_edit1_margin_start">15dp</dimen>
+</resources>
