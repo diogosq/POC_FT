@@ -12,9 +12,11 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -59,6 +61,8 @@ public class CadastroActivity extends Activity{
     private EditText  mEditTextNascimento;
     private EditText  mEditTextNonActive5;
     private EditText  mEditTextNonActive6;
+    private TextView  mCheckBoxText;
+    private CheckBox  mCheckbox;
     private Spinner   mSpinnerSexo;
     private Button    mButtonConfirmar;
 
@@ -86,6 +90,8 @@ public class CadastroActivity extends Activity{
         mEditTextNonActive6 = (EditText) findViewById(R.id.non_active_edit_text6);
         mSpinnerSexo = (Spinner) findViewById(R.id.spinner_sexo);
         mButtonConfirmar = (Button) findViewById(R.id.button_ConfirmarCadastro);
+        mCheckBoxText = (TextView) findViewById(R.id.cadastro_checkboxText);
+        mCheckbox = (CheckBox) findViewById(R.id.checkbox_termosUso);
 
         nomeWatcher(mEditTextNome, mIcon1, R.drawable.ic_nome, R.drawable.ic_nome_check);
         nomeWatcher(mEditTextEmail, mIcon2, R.drawable.ic_email, R.drawable.ic_email_check);
@@ -98,6 +104,12 @@ public class CadastroActivity extends Activity{
         setMasksToFields();
         initializeSpinner();
         botaoConfirmarOnClickListener();
+        mCheckBoxText.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                mCheckbox.setChecked((!mCheckbox.isChecked()));
+            }
+        });
     }
 
     private void botaoConfirmarOnClickListener(){
